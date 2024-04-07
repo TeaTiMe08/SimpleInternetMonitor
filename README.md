@@ -1,14 +1,16 @@
 # SimpleInternetMonitor
 Measures Internet availibility in a background tray, so you can sue your network provider.
+
 ![icon](https://github.com/TeaTiMe08/SimpleInternetMonitor/assets/19726327/acbcb975-bfdb-4882-98c7-566b6789765f)
+
 ![image](https://github.com/TeaTiMe08/SimpleInternetMonitor/assets/19726327/bd5c703e-4851-4aef-92ea-f2f68fa9efe8)
 
 
 ## Why?
-So i am based in Germany and there is no state law for a clean internet line infractructure.
+So i am based in Germany and there is no state law for a clean internet cable infractructure.
 I am dealing with internet failures reaching from minutes to hours every week.
 To be able to compensate my frustration and my money for mobile network data i created this small project
-to be able to visualize the frustration from time to time especially when the network won't work again.
+for visualizing the frustration from time to time especially when i am offline... again....
 If you also feel that way, lets work on this project together.
 I already provided those
 
@@ -28,6 +30,8 @@ I already provided those
 2. Find the .zip file inside target-native directory
 3. Get NSIS from the [NSIS Download Page](https://nsis.sourceforge.io/Download)
 4. Open NSIS and open the **Compile NSI script** Feature
+
 ![image](https://github.com/TeaTiMe08/SimpleInternetMonitor/assets/19726327/82fece93-adcf-4ad4-8123-bc51d14eaaba)
-5. Select the [NSIS_windows.nsi](NSIS_windows.nsi) file
-6. Find the SimpleInternetMonitor-WindowsInstaller.exe in the project dir
+
+6. Select the [NSIS_windows.nsi](NSIS_windows.nsi) file
+7. Find the SimpleInternetMonitor-WindowsInstaller.exe in the project dir
