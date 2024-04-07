@@ -1,0 +1,7 @@
+COUNTRY,PROVIDER_NAME,DOMAIN_OR_IP
+World,Google,http://google.com
+Germany,Vodafone,http://speedtest.vodafone.de
+Germany,Telecom Frankfurt,http://ffm.wsqm.telekom-dienste.de.prod.hosts.ooklaserver.net:8080
+Germany,Telecom Berlin,http://ber.wsqm.telekom-dienste.de.prod.hosts.ooklaserver.net:8080
+Germany,Breitbandmessung.de,http://bbm2-wss.breitbandmessung.de/
+Germany,Speedtest.net,http://speedtest.briteline.de.prod.hosts.ooklaserver.net:8080
