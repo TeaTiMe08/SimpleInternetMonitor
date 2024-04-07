@@ -4,6 +4,10 @@ target-native/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
+# Because- no Binaries
+*.exe
+*.zip
+
 ### IntelliJ IDEA ###
 .idea/modules.xml
 .idea/jarRepositories.xml
