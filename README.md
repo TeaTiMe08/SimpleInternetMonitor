@@ -1,8 +1,6 @@
 # SimpleInternetMonitor
 Measures Internet availibility in a background tray, so you can sue your network provider.
 
-![icon](https://github.com/TeaTiMe08/SimpleInternetMonitor/assets/19726327/acbcb975-bfdb-4882-98c7-566b6789765f)
-
 ![image](https://github.com/TeaTiMe08/SimpleInternetMonitor/assets/19726327/bd5c703e-4851-4aef-92ea-f2f68fa9efe8)
 
 
