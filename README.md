@@ -19,9 +19,15 @@ I already provided those
 - Native Builds and Installer for Windows
 
 ## How to build the native executable
-1. Get [GraalVM from their Downloads page](https://www.graalvm.org/downloads/)
-2. Get Maven
-3. Run the <code>buildNative_from_Windows.ps1</code> script in IntelliJ
+1. Get GraalVM [from their Downloads page](https://www.graalvm.org/downloads/)
+2. Get [Maven](https://maven.apache.org/download.cgi)
+3. Get editbin.exe [from the Visual Studio Installer](https://visualstudio.microsoft.com/downloads/), by installing [these packages](https://stackoverflow.com/questions/57207503/dumpbin-exe-editbin-exe-package-needed-in-visual-studio-2019)
+4. Check if you added all of those to your system path: 
+   1. native-image
+   2. java
+   3. mvn
+   4. editbin
+5. Run the <code>buildNative_from_Windows.ps1</code> script in IntelliJ
 
 ## How to build a windows Installation executable
 1. Create a native Executable and the .zip file package following the [How to build the native executable](## How to build the native executable)
