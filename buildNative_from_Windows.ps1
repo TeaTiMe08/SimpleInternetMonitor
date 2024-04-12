@@ -11,7 +11,9 @@ native-image `
     "-Djava.awt.headless=false" `
     --enable-http `
     --enable-https `
-    "-H:ResourceConfigurationFiles=native-resources-configuration.json" `
+    --enable-url-protocols=ws,wss `
+    "-H:ResourceConfigurationFiles=.\graal\native-resources-configuration.json" `
+    "-H:ReflectionConfigurationFiles=.\graal\reflection_config.json" `
     -march=native `
     -jar .\target\SimpleInternetMonitor.jar `
     .\target-native\SimpleInternetMonitor
