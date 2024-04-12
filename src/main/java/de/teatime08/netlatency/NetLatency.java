@@ -2,6 +2,7 @@ package de.teatime08.netlatency;
 
 import de.teatime08.config.Config;
 import de.teatime08.config.StoredConfigLoader;
+import de.teatime08.netlatency.protocols.IRequestCheckerProvider;
 import de.teatime08.util.StackTracePrinter;
 
 import java.io.File;
@@ -30,6 +31,7 @@ public class NetLatency implements NetLatencyFileInformation, Runnable, StoredCo
     String absoluteLogFile;
     private PrintWriter openCsvPrinter;
     private final StoredConfigLoader storedConfigLoader;
+    private IRequestCheckerProvider provider;
 
     /**
      * Creates a new instance of the NetLatency checker.
@@ -40,6 +42,10 @@ public class NetLatency implements NetLatencyFileInformation, Runnable, StoredCo
         this.storedConfigLoader.subscribe(this);
         netaddress = storedConfigLoader.getConfig().selectedProviderDomain;
         absoluteLogFile = System.getProperty("user.home") + File.separator + filename;
+
+        // create provider
+        provider = IRequestCheckerProvider.getInstanceForAddress(netaddress);
+
         // check if file existed
         File f = new File(absoluteLogFile);
         final boolean created;
@@ -89,11 +95,11 @@ public class NetLatency implements NetLatencyFileInformation, Runnable, StoredCo
 
         String[] csv = new String[LatencyFileCsvModel.values().length];
         csv[LatencyFileCsvModel.TIMESTAMP.ordinal()] = stringTime;
-        IOException ex = null;
+        Throwable ex = null;
         try {
-            csv[LatencyFileCsvModel.LATENCY_IN_MS.ordinal()] = "" + latencyCheckMillies();
+            csv[LatencyFileCsvModel.LATENCY_IN_MS.ordinal()] = "" + provider.measureLatencyInMs(netaddress);
             csv[LatencyFileCsvModel.WORKED.ordinal()] = "y";
-        } catch (IOException e) {
+        } catch (Throwable e) {
             ex = e;
             csv[LatencyFileCsvModel.LATENCY_IN_MS.ordinal()] = "-1";
             csv[LatencyFileCsvModel.WORKED.ordinal()] = "n";
@@ -108,23 +114,6 @@ public class NetLatency implements NetLatencyFileInformation, Runnable, StoredCo
         return Arrays.stream(csv).collect(Collectors.joining(","));
     }
 
-    /**
-     * The actual measurement of the network latency.
-     * Measures how long it takes to get a http connection up.
-     * @return the millieseconds it takes to connect to a website.
-     * @throws IOException is it is not possible to connecto to the website.
-     */
-    private long latencyCheckMillies() throws IOException {
-        final URL url = new URL(netaddress);
-        final URLConnection conn = url.openConnection();
-        conn.setConnectTimeout(timeoutms);
-        long nanos = System.nanoTime();
-        conn.connect();
-        nanos = System.nanoTime() - nanos;
-        conn.getInputStream().close();
-        return (long) (nanos / 1_000_000d);
-    }
-
     @Override
     public String getDataFileLocation() {
         return absoluteLogFile;
@@ -133,5 +122,6 @@ public class NetLatency implements NetLatencyFileInformation, Runnable, StoredCo
     @Override
     public void configUpdated(Config config) {
         netaddress = config.selectedProviderDomain;
+        provider = IRequestCheckerProvider.getInstanceForAddress(netaddress);
     }
 }

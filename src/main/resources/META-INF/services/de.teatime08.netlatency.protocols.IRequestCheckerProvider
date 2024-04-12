@@ -1,0 +1,3 @@
+de.teatime08.netlatency.protocols.impl.HttpsProvider
+de.teatime08.netlatency.protocols.impl.URLProvider
+de.teatime08.netlatency.protocols.impl.WssProvider
