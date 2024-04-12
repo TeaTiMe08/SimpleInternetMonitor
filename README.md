@@ -39,3 +39,11 @@ I already provided those
 
 6. Select the [NSIS_windows.nsi](NSIS_windows.nsi) file
 7. Find the SimpleInternetMonitor-WindowsInstaller.exe in the project dir
+
+## Developer Information
+
+### Add new netlatency ServiceProvider for measuring other protocols
+1. Create class at de/teatime08/netlatency/protocols/impl/ implementing (IRequestCheckerProvider.java)[src/main/java/de/teatime08/netlatency/protocols/IRequestCheckerProvider.java]
+2. Add to the (META-INF.services file)[src/main/resources/META-INF/services/de.teatime08.netlatency.protocols.IRequestCheckerProvider]
+3. Add to the graal Reflections at (graal/reflection_config.json)[graal/reflection_config.json] [Thanks to @cstancu](https://github.com/cstancu/native-image-service-loader-demo/tree/master)
+4. Add to the <code>--enable-url-protocols</code> parameter in the buildNative build files
