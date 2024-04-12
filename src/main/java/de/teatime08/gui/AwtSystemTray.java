@@ -4,6 +4,7 @@ import de.teatime08.config.StoredConfigLoader;
 import de.teatime08.util.ResourceUtil;
 
 import javax.imageio.ImageIO;
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -78,7 +79,8 @@ public class AwtSystemTray {
             trayIcon.addMouseListener(new MouseListener() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
-                    actionOpenWebsite.actionPerformed(null);
+                    if (SwingUtilities.isLeftMouseButton(e))
+                        actionOpenWebsite.actionPerformed(null);
                 }
                 @Override
                 public void mousePressed(MouseEvent e) {}
