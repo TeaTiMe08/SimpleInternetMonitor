@@ -1,6 +1,9 @@
 package de.teatime08.config;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -9,6 +12,7 @@ import java.nio.file.Files;
 import java.util.HashSet;
 
 public class StoredConfigLoader {
+    private static Logger log = LogManager.getLogger(StoredConfigLoader.class);
     private static final String configFileName = System.getProperty("user.home") + File.separator + ".simpleInternetMonitorConfig.json";
 
     private Config config;
@@ -39,10 +43,14 @@ public class StoredConfigLoader {
 
     public static Config load() throws IOException {
         File configFile = new File(configFileName);
-        if ( ! configFile.exists())
+        if ( ! configFile.exists()) {
             store(new Config()); // store initial
+            log.info("No initial configuration found. Stored default config.");
+        }
         String jsonConfigString = new String(Files.readAllBytes(configFile.toPath()));
-        return new Gson().fromJson(jsonConfigString, Config.class);
+        Config config = new Gson().fromJson(jsonConfigString, Config.class);
+        log.info("Loaded config: " + System.lineSeparator() + new GsonBuilder().setPrettyPrinting().create().toJson(config));
+        return config;
     }
 
     public static void store(Config newConfig) throws IOException {
