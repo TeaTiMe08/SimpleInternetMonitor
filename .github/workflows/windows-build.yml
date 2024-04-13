@@ -35,6 +35,12 @@ jobs:
         run: |
           .\buildNative_from_Windows.ps1
 
+      - name: Upload Java Executable file
+        uses: actions/upload-artifact@v2
+        with:
+          name: SimpleInternetMonitor.jar
+          path: target\SimpleInternetMonitor.jar
+
       - name: Upload Executable
         uses: actions/upload-artifact@v2
         with:

@@ -1,7 +1,7 @@
 echo "Setting working dir to current script location: " $PSScriptRoot
 cd $PSScriptRoot
 echo "Starting Maven Build to single Jar file."
-mvn clean install compile package "-Dmaven.tests.skip=true"
+mvn -B -ntp clean install compile package "-Djava.awt.headless=false" "-Dmaven.tests.skip=true" "-Dorg.slf4j.simpleLogger.defaultLogLevel=WARN"
 echo "Creating target-native dir"
 New-Item -ItemType Directory -Force -Path target-native
 echo "Cleaning target-native directory"
