@@ -17,6 +17,13 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           native-image-job-reports: 'true'
           cache: 'maven'
+
+      # Execute the build script
+      - name: Build
+        run: |
+          .\buildNative_from_Windows.ps1
+      
+      # Install MSVC after the original build, because it can cause problems with GraalVM specified Path executables
       # Install the Windows MSVC to get editbin for modifying the appliation to not open in a visual console
       - uses: TheMrMilchmann/setup-msvc-dev@v3
         with:
@@ -30,10 +37,10 @@ jobs:
           scoop update
           scoop bucket add extras
           scoop install nsis
-      # Execute the build script
-      - name: Build
+      # Setup App and Installer
+      - name: Setup App as Console and Build Installer
         run: |
-          .\buildNative_from_Windows.ps1
+          .\buildNative_from_Windows_Installer.ps1
 
       - name: Upload Java Executable file
         uses: actions/upload-artifact@v2
