@@ -36,7 +36,7 @@
                     <appendAssemblyId>false</appendAssemblyId>
                     <archive>
                         <manifest>
-                            <addClasspath>true</addClasspath>
+                            <!--<addClasspath>true</addClasspath>-->
                             <!--<classpathPrefix>lib/</classpathPrefix>-->
                             <mainClass>de.teatime08.Main</mainClass>
                         </manifest>
