@@ -22,22 +22,22 @@ jobs:
       # Execute the build script
       - name: Build
         run: |
-          .\buildNative_from_Linux.sh
+          ./buildNative_from_Linux.sh
 
       - name: Upload Java Executable file
         uses: actions/upload-artifact@v4
         with:
           name: SimpleInternetMonitor-Ubuntu.jar
-          path: target\SimpleInternetMonitor.jar
+          path: target/SimpleInternetMonitor.jar
 
       - name: Upload Executable
         uses: actions/upload-artifact@v4
         with:
           name: SimpleInternetMonitor
-          path: target-native\SimpleInternetMonitor
+          path: target-native/SimpleInternetMonitor
 
       - name: Upload Debug Executable
         uses: actions/upload-artifact@v4
         with:
           name: SimpleInternetMonitor.debug
-          path: target-native\SimpleInternetMonitor.debug
+          path: target-native/SimpleInternetMonitor.debug
