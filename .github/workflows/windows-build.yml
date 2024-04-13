@@ -22,7 +22,7 @@ jobs:
       - name: Build
         run: |
           .\buildNative_from_Windows.ps1
-      
+
       # Install MSVC after the original build, because it can cause problems with GraalVM specified Path executables
       # Install the Windows MSVC to get editbin for modifying the appliation to not open in a visual console
       - uses: TheMrMilchmann/setup-msvc-dev@v3
@@ -43,19 +43,19 @@ jobs:
           .\buildNative_from_Windows_Installer.ps1
 
       - name: Upload Java Executable file
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: SimpleInternetMonitor.jar
           path: target\SimpleInternetMonitor.jar
 
       - name: Upload Executable
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: SimpleInternetMonitor.exe
           path: target-native\SimpleInternetMonitor.exe
 
       - name: Upload Installer
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: SimpleInternetMonitor-WindowsInstaller.exe
           path: target-native\SimpleInternetMonitor-WindowsInstaller.exe

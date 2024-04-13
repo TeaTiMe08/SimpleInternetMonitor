@@ -8,9 +8,11 @@ echo "Cleaning target-native directory"
 rm target-native\*
 echo "Starting Native Build on Windows."
 native-image `
+    -g `
     "-Djava.awt.headless=false" `
     --enable-http `
     --enable-https `
+    "-H:+UnlockExperimentalVMOptions" `
     "-H:ResourceConfigurationFiles=native-resources-configuration.json" `
     -march=native `
     -jar .\target\SimpleInternetMonitor.jar `
