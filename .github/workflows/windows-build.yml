@@ -12,8 +12,9 @@ jobs:
       # Setup the GraalVM with liberica, to avoid executing UI triggers
       - uses: graalvm/setup-graalvm@v1
         with:
-          java-version: '8'
+          java-version: '21'
           distribution: 'liberica'
+          java-package: 'jdk+fx'
           github-token: ${{ secrets.GITHUB_TOKEN }}
           native-image-job-reports: 'true'
           cache: 'maven'
