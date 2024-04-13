@@ -1,0 +1,52 @@
+name: GraalVM SimpleInternetMonitor builds
+on: [push, pull_request]
+jobs:
+  build:
+    name: SimpleInternetMonitor on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [windows-latest]
+    steps:
+      - uses: actions/checkout@v4
+      # Setup the GraalVM with liberica, to avoid executing UI triggers
+      - uses: graalvm/setup-graalvm@v1
+        with:
+          java-version: '21'
+          distribution: 'liberica'
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          native-image-job-reports: 'true'
+          cache: 'maven'
+      # Install the Windows MSVC to get editbin for modifying the appliation to not open in a visual console
+      - uses: TheMrMilchmann/setup-msvc-dev@v3
+        with:
+          arch: x64
+          spectre: true
+      # Setup NSIS installer builder
+      - name: Install NSIS
+        run: |
+          iwr -useb get.scoop.sh -outfile 'install.ps1'
+          .\install.ps1 -RunAsAdmin
+          scoop update
+          scoop bucket add extras
+          scoop install nsis
+          - name: Print NSIS version
+            run: makensis -VERSION
+          - name: Print NSIS compile flags
+            run: makensis -HDRINFO
+      # Execute the build script
+      - name: Build
+        run: |
+          .\buildNative_from_Windows.ps1
+
+      - name: Upload Executable
+        uses: actions/upload-artifact@v2
+        with:
+          name: SimpleInternetMonitor.exe
+          path: target-native\SimpleInternetMonitor.exe
+
+      - name: Upload Installer
+        uses: actions/upload-artifact@v2
+        with:
+          name: SimpleInternetMonitor-WindowsInstaller.exe
+          path: target-native\SimpleInternetMonitor-WindowsInstaller.exe
