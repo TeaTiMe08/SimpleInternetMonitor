@@ -1,5 +1,5 @@
 name: GraalVM SimpleInternetMonitor builds
-on: [push, pull_request]
+on: [pull_request]
 jobs:
   build:
     name: SimpleInternetMonitor on ${{ matrix.os }}
@@ -13,8 +13,7 @@ jobs:
       - uses: graalvm/setup-graalvm@v1
         with:
           java-version: '21'
-#          distribution: 'liberica'
-          distribution: 'graalvm-community'
+          distribution: 'liberica'
           java-package: 'jdk+fx'
           github-token: ${{ secrets.GITHUB_TOKEN }}
           native-image-job-reports: 'true'

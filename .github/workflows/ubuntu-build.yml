@@ -1,0 +1,43 @@
+name: GraalVM SimpleInternetMonitor builds
+on: [push, pull_request]
+jobs:
+  build:
+    name: SimpleInternetMonitor on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+    steps:
+      - uses: actions/checkout@v4
+      # Setup the GraalVM with liberica, to avoid executing UI triggers
+      - uses: graalvm/setup-graalvm@v1
+        with:
+          java-version: '21'
+          distribution: 'liberica'
+          java-package: 'jdk+fx'
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          native-image-job-reports: 'true'
+          cache: 'maven'
+
+      # Execute the build script
+      - name: Build
+        run: |
+          .\buildNative_from_Linux.sh
+
+      - name: Upload Java Executable file
+        uses: actions/upload-artifact@v4
+        with:
+          name: SimpleInternetMonitor-Ubuntu.jar
+          path: target\SimpleInternetMonitor.jar
+
+      - name: Upload Executable
+        uses: actions/upload-artifact@v4
+        with:
+          name: SimpleInternetMonitor
+          path: target-native\SimpleInternetMonitor
+
+      - name: Upload Debug Executable
+        uses: actions/upload-artifact@v4
+        with:
+          name: SimpleInternetMonitor.debug
+          path: target-native\SimpleInternetMonitor.debug
