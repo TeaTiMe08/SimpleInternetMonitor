@@ -12,7 +12,7 @@ echo "Starting Native Build on Windows."
 native-image `
     -g -O0 `
     "-Djava.awt.headless=false" `
-    --no-fallback --allow-incomplete-classpath --report-unsupported-elements-at-runtime `
+    --link-at-build-time `
     --enable-http `
     --enable-https `
     "-H:+UnlockExperimentalVMOptions" `
