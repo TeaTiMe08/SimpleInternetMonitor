@@ -22,6 +22,7 @@ jobs:
       # Execute the build script
       - name: Build
         run: |
+          chmod +x ./buildNative_from_Linux.sh
           ./buildNative_from_Linux.sh
 
       - name: Upload Java Executable file
