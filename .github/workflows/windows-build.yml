@@ -13,7 +13,8 @@ jobs:
       - uses: graalvm/setup-graalvm@v1
         with:
           java-version: '21'
-          distribution: 'liberica'
+#          distribution: 'liberica'
+          distribution: 'graalvm-community'
           java-package: 'jdk+fx'
           github-token: ${{ secrets.GITHUB_TOKEN }}
           native-image-job-reports: 'true'
