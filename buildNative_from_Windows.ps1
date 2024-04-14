@@ -21,6 +21,6 @@ native-image `
     -jar .\target\SimpleInternetMonitor.jar `
     .\target-native\SimpleInternetMonitor
 echo "Compressing target-native executable into zip."
-Compress-Archive -Path .\target-native\* -DestinationPath .\target-native\SimpleInternetMonitor.zip
+Compress-Archive -Path .\target-native\* -DestinationPath .\SimpleInternetMonitor.zip
 echo "Generated contents in target-native:"
 ls .\target-native

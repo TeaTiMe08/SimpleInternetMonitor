@@ -53,7 +53,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: SimpleInternetMonitor-Windows.zip
-          path: target-native\SimpleInternetMonitor.zip
+          path: .\SimpleInternetMonitor.zip
 
       - name: Upload Installer
         uses: actions/upload-artifact@v4
