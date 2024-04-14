@@ -25,11 +25,21 @@ jobs:
           chmod +x ./buildNative_from_Linux.sh
           ./buildNative_from_Linux.sh
 
+      - uses: montudor/action-zip@v1
+        with:
+          args: zip -qq -r target-native-Ubuntu.zip target-native/
+
       - name: Upload Java Executable file
         uses: actions/upload-artifact@v4
         with:
           name: SimpleInternetMonitor-Ubuntu.jar
           path: target/SimpleInternetMonitor.jar
+
+      - name: Upload debug output
+        uses: actions/upload-artifact@v4
+        with:
+          name: target-native-Ubuntu.zip
+          path: target-native-Ubuntu.zip
 
       - name: Upload Executable
         uses: actions/upload-artifact@v4

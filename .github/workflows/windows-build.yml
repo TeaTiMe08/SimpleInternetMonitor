@@ -1,5 +1,5 @@
 name: GraalVM SimpleInternetMonitor builds
-on: [push, pull_request]
+on: [pull_request]
 jobs:
   build:
     name: SimpleInternetMonitor on ${{ matrix.os }}
