@@ -10,7 +10,7 @@ Section "SimpleInternetMonitor" SecApp
     ; Set output path to the installation directory
     SetOutPath $INSTDIR
 
-    ; Extract files from the zip archive
+    ; Copy all files from the target-native archive
     DetailPrint "Extracting files..."
     SetOverwrite on
     File "target-native\*"

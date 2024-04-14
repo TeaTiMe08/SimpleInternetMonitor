@@ -52,14 +52,8 @@ jobs:
       - name: Upload Executable
         uses: actions/upload-artifact@v4
         with:
-          name: SimpleInternetMonitor.exe
-          path: target-native\SimpleInternetMonitor.exe
-
-      - name: Upload Debug Executable
-        uses: actions/upload-artifact@v4
-        with:
-          name: SimpleInternetMonitor.debug
-          path: target-native\SimpleInternetMonitor.debug
+          name: SimpleInternetMonitor-Windows.zip
+          path: target-native\SimpleInternetMonitor.zip
 
       - name: Upload Installer
         uses: actions/upload-artifact@v4
