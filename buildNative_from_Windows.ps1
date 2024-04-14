@@ -17,7 +17,7 @@ native-image `
     --enable-https `
     --enable-url-protocols=ws,wss `
     "-H:+UnlockExperimentalVMOptions" `
-    "-H:ResourceConfigurationFiles=native-resources-configuration.json" `
+    "-H:ResourceConfigurationFiles=.\graal\native-resources-configuration.json" `
     -jar .\target\SimpleInternetMonitor.jar `
     .\target-native\SimpleInternetMonitor
 echo "Compressing target-native executable into zip."
