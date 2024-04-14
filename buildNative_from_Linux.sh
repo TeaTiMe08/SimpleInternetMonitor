@@ -12,10 +12,13 @@ rm -rf target-native/*
 echo "Starting Native Build on Linux."
 native-image \
     -g -O0 \
+    -march=compatibility \
     "-Djava.awt.headless=false" \
-    --no-fallback --link-at-build-time \
+    --no-fallback \
     --enable-http \
     --enable-https \
+    --enable-url-protocols=ws,wss \
+    "-H:+UnlockExperimentalVMOptions" \
     "-H:ResourceConfigurationFiles=native-resources-configuration.json" \
     -jar ./target/SimpleInternetMonitor.jar \
     ./target-native/SimpleInternetMonitor
