@@ -17,7 +17,9 @@ jobs:
     steps:
       - name: Get release version from pom.xml
         id: ver
-        run: echo "project_version='$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)'" >> $GITHUB_OUTPUT
+        run: |
+          ls -altr
+          echo "project_version=$(cat pom.xml | grep -rPhm 1 '<version>.{0,15}' | sed -e 's/[[:space:]]\+//p' | sed 's/<version>//p' | sed 's/<\/version>//p' | head -n 1 | tr -d '\012\015')" >> $GITHUB_OUTPUT
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
