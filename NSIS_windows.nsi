@@ -28,7 +28,7 @@ Section "SimpleInternetMonitor" SecApp
     WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\SimpleInternetMonitor" "UninstallString" "$INSTDIR\uninstall.exe"
     WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\SimpleInternetMonitor" "URLInfoAbout" "https://github.com/TeaTiMe08/SimpleInternetMonitor"
     ; Approve Autostart automatically
-    WriteRegBin HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\StartupApproved\Run" "SimpleInternetMonitor" 000000000000
+    WriteRegBin HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\StartupApproved\Run" "SimpleInternetMonitor" 000000000000000000000000
 SectionEnd
 
 Section "Start Menu Shortcut" SecShortcut
