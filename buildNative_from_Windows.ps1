@@ -1,7 +1,11 @@
 echo "Setting working dir to current script location: " $PSScriptRoot
 cd $PSScriptRoot
+echo "Copying over Windows traces"
+Copy-Item -Path .\graal\trace\windows\*.json -Destination .\src\main\resources\META-INF\native-image\
 echo "Starting Maven Build to single Jar file."
 mvn -B -ntp clean install compile package "-Djava.awt.headless=false" "-Dmaven.tests.skip=true" "-Dorg.slf4j.simpleLogger.defaultLogLevel=WARN"
+echo "Removing Windows trace files from src dir."
+Remove-Item -Path .\src\main\resources\META-INF\native-image\*.json
 echo "Generated contents in target:"
 ls .\target
 echo "Creating target-native dir"

@@ -1,3 +1,7 @@
+# Ignore traces in src dir
+src/main/resources/META-INF/native-image/*.json
+
+# Standard stuff...
 target/
 target-native/
 !.mvn/wrapper/maven-wrapper.jar
