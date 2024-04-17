@@ -114,6 +114,7 @@ jobs:
   create-release:
     name: Create release
     needs: [windows-build, ubuntu-build]
+    permissions: write-all
     runs-on: ubuntu-latest
     steps:
       - name: Get release version from pom.xml
