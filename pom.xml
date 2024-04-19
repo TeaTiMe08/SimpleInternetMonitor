@@ -47,12 +47,9 @@
     </build>
 
     <dependencies>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
-            <version>5.9.2</version>
-            <scope>test</scope>
-        </dependency>
+        <!--                                      -->
+        <!--           UI Dependencies            -->
+        <!--                                      -->
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
@@ -68,14 +65,16 @@
             <artifactId>Java-WebSocket</artifactId>
             <version>1.5.6</version>
         </dependency>
+        <!--                                      -->
+        <!--           UI Dependencies            -->
+        <!--                                      -->
         <dependency>
             <groupId>com.formdev</groupId>
             <artifactId>flatlaf</artifactId>
             <version>3.4.1</version>
         </dependency>
-
         <!--                                      -->
-        <!--       Logging Dependencies           -->
+        <!--        Logging Dependencies          -->
         <!--                                      -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
@@ -96,6 +95,15 @@
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>1.7.36</version>
+        </dependency>
+        <!--                                      -->
+        <!--        Testing Dependencies          -->
+        <!--                                      -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>5.9.2</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
