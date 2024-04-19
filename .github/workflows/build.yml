@@ -1,11 +1,11 @@
 name: GraalVM SimpleInternetMonitor builds
 on:
   push:
-#    branches:
-#      - main
+    branches:
+      - main
   pull_request:
-#    branches:
-#      - main
+    branches:
+      - main
 jobs:
   create-release:
     name: Create release
