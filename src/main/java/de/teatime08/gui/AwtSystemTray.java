@@ -1,5 +1,6 @@
 package de.teatime08.gui;
 
+import com.formdev.flatlaf.ui.FlatPopupFactory;
 import de.teatime08.config.StoredConfigLoader;
 import de.teatime08.util.ResourceUtil;
 
@@ -17,7 +18,6 @@ import java.net.URI;
 import java.net.URISyntaxException;
 
 public class AwtSystemTray {
-
     private StoredConfigLoader storedConfigLoader;
 
     public AwtSystemTray(StoredConfigLoader storedConfigLoader) {
@@ -54,33 +54,45 @@ public class AwtSystemTray {
                 throw new RuntimeException(e);
             }
             // create a popup menu
-            PopupMenu popup = new PopupMenu();
+            JPopupMenu popup = new JPopupMenu();
 
             // create menu item for the default action
-            MenuItem quitItem = new MenuItem("Quit");
+            JMenuItem quitItem = new JMenuItem("Quit");
             quitItem.addActionListener(e -> {
                 System.exit(0);
+                popup.setVisible(false);
             });
-            popup.add(quitItem);
 
             // create another opten item
-            MenuItem openItem = new MenuItem("Open");
+            JMenuItem openItem = new JMenuItem("Open");
             openItem.addActionListener(actionOpenWebsite);
-            popup.add(openItem);
+            openItem.addActionListener(close -> {
+                popup.setVisible(false);
+            });
 
-            MenuItem providerItem = new MenuItem("Select Provider");
+            JMenuItem providerItem = new JMenuItem("Select Provider");
             providerItem.addActionListener(new SelectProviderActionFrame(storedConfigLoader));
+            providerItem.addActionListener(list -> popup.setVisible(false));
+
+            // add all options to the menu in order.
+            popup.add(openItem);
             popup.add(providerItem);
+            popup.add(quitItem);
 
             // construct a TrayIcon
-            trayIcon = new TrayIcon(image, "Simple Internet Monitor", popup);
+            trayIcon = new TrayIcon(image, "Simple Internet Monitor");
             // set the TrayIcon properties
             trayIcon.addActionListener(actionOpenWebsite);
             trayIcon.addMouseListener(new MouseListener() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
-                    if (SwingUtilities.isLeftMouseButton(e))
+                    if (SwingUtilities.isLeftMouseButton(e)) {
                         actionOpenWebsite.actionPerformed(null);
+                    }
+                    if (SwingUtilities.isRightMouseButton(e)) {
+                        Point mouse = MouseInfo.getPointerInfo().getLocation();
+                        popup.show(null, mouse.x,mouse.y);
+                    }
                 }
                 @Override
                 public void mousePressed(MouseEvent e) {}
