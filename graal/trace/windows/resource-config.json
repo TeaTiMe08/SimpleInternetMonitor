@@ -5,6 +5,8 @@
   }, {
     "pattern":"\\QMETA-INF/services/com.sun.net.httpserver.spi.HttpServerProvider\\E"
   }, {
+    "pattern":"\\QMETA-INF/services/de.teatime08.netlatency.protocols.IRequestCheckerProvider\\E"
+  }, {
     "pattern":"\\QMETA-INF/services/java.awt.im.spi.InputMethodDescriptor\\E"
   }, {
     "pattern":"\\QMETA-INF/services/java.lang.System$LoggerFinder\\E"
@@ -27,6 +29,8 @@
   }, {
     "pattern":"\\QMETA-INF/services/javax.imageio.spi.ImageWriterSpi\\E"
   }, {
+    "pattern":"\\QMETA-INF/services/org.slf4j.spi.SLF4JServiceProvider\\E"
+  }, {
     "pattern":"\\Qcom/formdev/flatlaf/FlatIntelliJLaf.properties\\E"
   }, {
     "pattern":"\\Qcom/formdev/flatlaf/FlatLaf.properties\\E"
@@ -37,6 +41,8 @@
   }, {
     "pattern":"\\Qicon.png\\E"
   }, {
+    "pattern":"\\Qorg/slf4j/impl/StaticLoggerBinder.class\\E"
+  }, {
     "pattern":"\\QpingDomains.csv\\E"
   }, {
     "pattern":"\\Qstatic/chart.js\\E"
@@ -44,6 +50,12 @@
     "pattern":"\\Qstatic/favicon.ico\\E"
   }, {
     "pattern":"\\Qstatic/netspeed.html\\E"
+  }, {
+    "pattern":"java.base:\\Qjdk/internal/icu/impl/data/icudt72b/nfkc.nrm\\E"
+  }, {
+    "pattern":"java.base:\\Qjdk/internal/icu/impl/data/icudt72b/uprops.icu\\E"
+  }, {
+    "pattern":"java.base:\\Qsun/net/idn/uidna.spp\\E"
   }, {
     "pattern":"java.desktop:\\Qcom/formdev/flatlaf/resources/Bundle.properties\\E"
   }, {

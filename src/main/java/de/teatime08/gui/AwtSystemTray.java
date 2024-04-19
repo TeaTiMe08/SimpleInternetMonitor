@@ -1,16 +1,12 @@
 package de.teatime08.gui;
 
-import com.formdev.flatlaf.ui.FlatPopupFactory;
 import de.teatime08.config.StoredConfigLoader;
 import de.teatime08.util.ResourceUtil;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.awt.event.*;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -54,7 +50,7 @@ public class AwtSystemTray {
                 throw new RuntimeException(e);
             }
             // create a popup menu
-            JPopupMenu popup = new JPopupMenu();
+            final JPopupMenu popup = new JPopupMenu();
 
             // create menu item for the default action
             JMenuItem quitItem = new JMenuItem("Quit");
@@ -71,7 +67,8 @@ public class AwtSystemTray {
             });
 
             JMenuItem providerItem = new JMenuItem("Select Provider");
-            providerItem.addActionListener(new SelectProviderActionFrame(storedConfigLoader));
+            SelectProviderActionFrame selectProviderActionFrame = new SelectProviderActionFrame(storedConfigLoader);
+            providerItem.addActionListener(e -> selectProviderActionFrame.setVisible(true));
             providerItem.addActionListener(list -> popup.setVisible(false));
 
             // add all options to the menu in order.
@@ -92,6 +89,15 @@ public class AwtSystemTray {
                     if (SwingUtilities.isRightMouseButton(e)) {
                         Point mouse = MouseInfo.getPointerInfo().getLocation();
                         popup.show(null, mouse.x,mouse.y);
+                        Thread autoclose = new Thread(() -> {
+                            try {
+                                Thread.sleep(7000);
+                                popup.setVisible(false);
+                            } catch (InterruptedException ex) {
+                                throw new RuntimeException(ex);
+                            }
+                        });
+                        autoclose.start();
                     }
                 }
                 @Override
@@ -103,14 +109,11 @@ public class AwtSystemTray {
                 @Override
                 public void mouseExited(MouseEvent e) {}
             });
-            // ...
-            // add the tray image
             try {
                 tray.add(trayIcon);
             } catch (AWTException e) {
                 System.err.println(e);
             }
-            // ...
         } else {
             // disable tray option in your application or
             // perform other actions

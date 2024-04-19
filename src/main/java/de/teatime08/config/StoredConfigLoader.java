@@ -1,6 +1,7 @@
 package de.teatime08.config;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -39,10 +40,14 @@ public class StoredConfigLoader {
 
     public static Config load() throws IOException {
         File configFile = new File(configFileName);
-        if ( ! configFile.exists())
+        if ( ! configFile.exists()) {
             store(new Config()); // store initial
+            System.out.println("No initial configuration found. Stored default config.");
+        }
         String jsonConfigString = new String(Files.readAllBytes(configFile.toPath()));
-        return new Gson().fromJson(jsonConfigString, Config.class);
+        Config config = new Gson().fromJson(jsonConfigString, Config.class);
+        System.out.println("Loaded config: " + System.lineSeparator() + new GsonBuilder().setPrettyPrinting().create().toJson(config));
+        return config;
     }
 
     public static void store(Config newConfig) throws IOException {

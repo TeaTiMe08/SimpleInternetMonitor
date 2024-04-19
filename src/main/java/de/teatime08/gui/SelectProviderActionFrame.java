@@ -11,22 +11,20 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
-public class SelectProviderActionFrame extends JDialog implements ActionListener {
+public class SelectProviderActionFrame extends JDialog {
+    private final SelectProviderActionFrame thus = this; // stupid swing sometimes needs th...
+    private final StoredConfigLoader storedConfigLoader;
+
     private JButton selectButton;
     private JTable itemTable;
 
-    private final SelectProviderActionFrame thus = this;
-
-    private final StoredConfigLoader storedConfigLoader;
-
     public SelectProviderActionFrame(StoredConfigLoader storedConfigLoader) {
         this.storedConfigLoader = storedConfigLoader;
-    }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
+        setLocationRelativeTo(null);
+
         setTitle("Item Selection");
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         setSize(400, 300);
 
         // load providers
@@ -74,6 +72,7 @@ public class SelectProviderActionFrame extends JDialog implements ActionListener
                         storedConfigLoader.store();
                     } catch (IOException ex) {
                         JOptionPane.showMessageDialog(null, "This did not work: Exception @ " + StackTracePrinter.stacktraceLineMessage(ex));
+                        throw new RuntimeException(ex);
                     }
                     thus.dispose();
                     thus.setVisible(false);
@@ -83,7 +82,5 @@ public class SelectProviderActionFrame extends JDialog implements ActionListener
                 }
             }
         });
-        setLocationRelativeTo(null);
-        setVisible(true);
     }
 }

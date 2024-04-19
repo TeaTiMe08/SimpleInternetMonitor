@@ -1,0 +1,20 @@
+[
+  {
+    "name" : "de/teatime08/netlatency/protocols/impl/HttpsProvider",
+    "methods": [
+      { "name": "<init>", "parameterTypes": [] }
+    ]
+  },
+  {
+    "name" : "de/teatime08/netlatency/protocols/impl/URLProvider",
+    "methods": [
+      { "name": "<init>", "parameterTypes": [] }
+    ]
+  },
+  {
+    "name" : "de/teatime08/netlatency/protocols/impl/WssProvider",
+    "methods": [
+      { "name": "<init>", "parameterTypes": [] }
+    ]
+  }
+]

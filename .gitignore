@@ -1,5 +1,7 @@
 # Ignore traces in src dir
 src/main/resources/META-INF/native-image/*.json
+# Ignore built packages
+./SimpleInternetMonitor.zip
 
 # Standard stuff...
 target/
