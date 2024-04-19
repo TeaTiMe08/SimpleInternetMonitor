@@ -12,15 +12,16 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 
 public class SelectProviderActionFrame extends JDialog {
+    private final SelectProviderActionFrame thus = this; // stupid swing sometimes needs th...
+    private final StoredConfigLoader storedConfigLoader;
+
     private JButton selectButton;
     private JTable itemTable;
 
-    private final SelectProviderActionFrame thus = this;
-
-    private final StoredConfigLoader storedConfigLoader;
-
     public SelectProviderActionFrame(StoredConfigLoader storedConfigLoader) {
         this.storedConfigLoader = storedConfigLoader;
+
+        setLocationRelativeTo(null);
 
         setTitle("Item Selection");
         setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
@@ -81,6 +82,5 @@ public class SelectProviderActionFrame extends JDialog {
                 }
             }
         });
-        setLocationRelativeTo(null);
     }
 }
