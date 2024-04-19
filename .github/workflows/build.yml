@@ -1,0 +1,181 @@
+name: GraalVM SimpleInternetMonitor builds
+on:
+  push:
+#    branches:
+#      - main
+  pull_request:
+#    branches:
+#      - main
+jobs:
+  create-release:
+    name: Create release
+    permissions: write-all
+    runs-on: ubuntu-latest
+    outputs:
+      output_releaseVer: ${{ steps.ver.outputs.project_version }}
+      output_uploadUrl: ${{ steps.create_release.outputs.upload_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Get release version from pom.xml
+        id: ver
+        run: |
+          ls -altr
+          echo "project_version=$(cat pom.xml | grep -Phm 1 '<version>.{0,15}' | sed -e 's/[[:space:]]\+//p' | sed 's/<version>//p' | sed 's/<\/version>//p' | head -n 1 | tr -d '\012\015')" >> $GITHUB_OUTPUT
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          draft: false
+          prerelease: false
+          tag_name: ${{ steps.ver.outputs.project_version }}
+          release_name: Release ${{ steps.ver.outputs.project_version }}
+          body: CHANGELOG.md
+  ubuntu-build:
+    name: Windows SimpleInternetMonitor on ${{ matrix.os }}
+    needs: create-release
+    permissions: write-all
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+    steps:
+      - uses: actions/checkout@v4
+      # Setup the GraalVM with liberica, to avoid executing UI triggers
+      - uses: graalvm/setup-graalvm@v1
+        with:
+          java-version: '21'
+          distribution: 'liberica'
+          java-package: 'jdk+fx'
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          native-image-job-reports: 'true'
+          cache: 'maven'
+
+      # Execute the build script
+      - name: Build
+        run: |
+          chmod +x ./buildNative_from_Linux.sh
+          ./buildNative_from_Linux.sh
+
+      - name: Compress action step
+        uses: a7ul/tar-action@v1.2.0
+        id: compress
+        with:
+          command: c
+          files: |
+            ./target-native/
+          outPath: SimpleInternetMonitor-Linux.tar.gz
+
+      # Adding to Run Assets
+      - name: Run; Upload Java Executable file
+        uses: actions/upload-artifact@v4
+        with:
+          name: SimpleInternetMonitor.jar
+          path: target/SimpleInternetMonitor.jar
+      - name: Run;Upload Linux Binaries
+        uses: actions/upload-artifact@v4
+        with:
+          name: SimpleInternetMonitor-Linux.tar.gz
+          path: SimpleInternetMonitor-Linux.tar.gz
+      - name: Run; Upload Debug Executable
+        uses: actions/upload-artifact@v4
+        with:
+          name: SimpleInternetMonitor.debug
+          path: target-native/SimpleInternetMonitor-Ubuntu.debug
+
+      # Adding to Release
+      - name: Release; Upload Java Executable file
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        with:
+          upload_url: ${{ needs.create-release.outputs.output_uploadUrl }}
+          asset_path: target/SimpleInternetMonitor.jar
+          asset_name: SimpleInternetMonitor.jar
+          asset_content_type: application/zip
+      - name: Release; Upload Linux Binaries release
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        with:
+          upload_url: ${{ needs.create-release.outputs.output_uploadUrl }}
+          asset_path: SimpleInternetMonitor-Linux.tar.gz
+          asset_name: SimpleInternetMonitor-Linux.tar.gz
+          asset_content_type: application/gzip
+
+  windows-build:
+    name: SimpleInternetMonitor on ${{ matrix.os }}
+    needs: create-release
+    permissions: write-all
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ windows-latest ]
+    steps:
+      - uses: actions/checkout@v4
+      # Setup the GraalVM with liberica, to avoid executing UI triggers
+      - uses: graalvm/setup-graalvm@v1
+        with:
+          java-version: '21'
+          distribution: 'liberica'
+          java-package: 'jdk+fx'
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          native-image-job-reports: 'true'
+          cache: 'maven'
+
+      # Execute the build script
+      - name: Build
+        run: |
+          .\buildNative_from_Windows.ps1
+
+      # Install MSVC after the original build, because it can cause problems with GraalVM specified Path executables
+      # Install the Windows MSVC to get editbin for modifying the appliation to not open in a visual console
+      - uses: TheMrMilchmann/setup-msvc-dev@v3
+        with:
+          arch: x64
+          spectre: true
+      # Setup NSIS installer builder
+      - name: Install NSIS
+        run: |
+          iwr -useb get.scoop.sh -outfile 'install.ps1'
+          .\install.ps1 -RunAsAdmin
+          scoop update
+          scoop bucket add extras
+          scoop install nsis
+      # Setup App and Installer
+      - name: Setup App as Console and Build Installer
+        run: |
+          .\buildNative_from_Windows_Installer.ps1
+
+      # Adding to Run Assets
+      - name: Run; Upload Windows Executable
+        uses: actions/upload-artifact@v4
+        with:
+          name: SimpleInternetMonitor-Windows.zip
+          path: .\SimpleInternetMonitor.zip
+      - name: Run; Upload Windows Installer
+        uses: actions/upload-artifact@v4
+        with:
+          name: SimpleInternetMonitor-WindowsInstaller.exe
+          path: target-native\SimpleInternetMonitor-WindowsInstaller.exe
+
+      # Adding to Release
+      - name: Release; Upload Windows Executable
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        with:
+          upload_url: ${{ needs.create-release.outputs.output_uploadUrl }}
+          asset_path: .\SimpleInternetMonitor.zip
+          asset_name: SimpleInternetMonitor-Windows.zip
+          asset_content_type: application/zip
+      - name: Release; Upload Windows Installer
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        with:
+          upload_url: ${{ needs.create-release.outputs.output_uploadUrl }}
+          asset_path: target-native\SimpleInternetMonitor-WindowsInstaller.exe
+          asset_name: SimpleInternetMonitor-WindowsInstaller.exe
+          asset_content_type: application/zip

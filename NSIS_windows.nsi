@@ -10,7 +10,7 @@ Section "SimpleInternetMonitor" SecApp
     ; Set output path to the installation directory
     SetOutPath $INSTDIR
 
-    ; Extract files from the zip archive
+    ; Copy all files from the target-native archive
     DetailPrint "Extracting files..."
     SetOverwrite on
     File "target-native\*"
@@ -28,7 +28,7 @@ Section "SimpleInternetMonitor" SecApp
     WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\SimpleInternetMonitor" "UninstallString" "$INSTDIR\uninstall.exe"
     WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\SimpleInternetMonitor" "URLInfoAbout" "https://github.com/TeaTiMe08/SimpleInternetMonitor"
     ; Approve Autostart automatically
-    WriteRegBin HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\StartupApproved\Run" "SimpleInternetMonitor" 000000000000
+    WriteRegBin HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\StartupApproved\Run" "SimpleInternetMonitor" 000000000000000000000000
 SectionEnd
 
 Section "Start Menu Shortcut" SecShortcut

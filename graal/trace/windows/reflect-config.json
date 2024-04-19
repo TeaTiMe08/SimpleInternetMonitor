@@ -1,0 +1,312 @@
+[
+{
+  "name":"[Ljava.awt.event.MouseMotionListener;"
+},
+{
+  "name":"com.formdev.flatlaf.icons.FlatAscendingSortIcon",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"com.formdev.flatlaf.icons.FlatCheckBoxIcon",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"com.formdev.flatlaf.icons.FlatDescendingSortIcon",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"com.formdev.flatlaf.icons.FlatHelpButtonIcon",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"com.formdev.flatlaf.icons.FlatMenuItemArrowIcon",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"com.formdev.flatlaf.icons.FlatOptionPaneInformationIcon",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"com.formdev.flatlaf.icons.FlatWindowCloseIcon",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"com.formdev.flatlaf.icons.FlatWindowIconifyIcon",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"com.formdev.flatlaf.icons.FlatWindowMaximizeIcon",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"com.formdev.flatlaf.icons.FlatWindowRestoreIcon",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"com.formdev.flatlaf.ui.FlatArrowButton",
+  "methods":[{"name":"coalesceEvents","parameterTypes":["java.awt.AWTEvent","java.awt.AWTEvent"] }]
+},
+{
+  "name":"com.formdev.flatlaf.ui.FlatButtonBorder",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"com.formdev.flatlaf.ui.FlatButtonUI",
+  "methods":[{"name":"createUI","parameterTypes":["javax.swing.JComponent"] }]
+},
+{
+  "name":"com.formdev.flatlaf.ui.FlatCheckBoxUI",
+  "methods":[{"name":"createUI","parameterTypes":["javax.swing.JComponent"] }]
+},
+{
+  "name":"com.formdev.flatlaf.ui.FlatLabelUI",
+  "methods":[{"name":"createUI","parameterTypes":["javax.swing.JComponent"] }]
+},
+{
+  "name":"com.formdev.flatlaf.ui.FlatMarginBorder",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"com.formdev.flatlaf.ui.FlatMenuItemBorder",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"com.formdev.flatlaf.ui.FlatMenuItemUI",
+  "methods":[{"name":"createUI","parameterTypes":["javax.swing.JComponent"] }]
+},
+{
+  "name":"com.formdev.flatlaf.ui.FlatOptionPaneUI",
+  "methods":[{"name":"createUI","parameterTypes":["javax.swing.JComponent"] }]
+},
+{
+  "name":"com.formdev.flatlaf.ui.FlatPanelUI",
+  "methods":[{"name":"createUI","parameterTypes":["javax.swing.JComponent"] }]
+},
+{
+  "name":"com.formdev.flatlaf.ui.FlatPopupMenuBorder",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"com.formdev.flatlaf.ui.FlatPopupMenuUI",
+  "methods":[{"name":"createUI","parameterTypes":["javax.swing.JComponent"] }]
+},
+{
+  "name":"com.formdev.flatlaf.ui.FlatRootPaneUI",
+  "methods":[{"name":"createUI","parameterTypes":["javax.swing.JComponent"] }]
+},
+{
+  "name":"com.formdev.flatlaf.ui.FlatScrollBarUI",
+  "methods":[{"name":"createUI","parameterTypes":["javax.swing.JComponent"] }]
+},
+{
+  "name":"com.formdev.flatlaf.ui.FlatScrollBarUI$FlatScrollBarButton",
+  "methods":[{"name":"coalesceEvents","parameterTypes":["java.awt.AWTEvent","java.awt.AWTEvent"] }]
+},
+{
+  "name":"com.formdev.flatlaf.ui.FlatScrollPaneBorder",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"com.formdev.flatlaf.ui.FlatScrollPaneUI",
+  "methods":[{"name":"createUI","parameterTypes":["javax.swing.JComponent"] }]
+},
+{
+  "name":"com.formdev.flatlaf.ui.FlatTableCellBorder$Default",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"com.formdev.flatlaf.ui.FlatTableCellBorder$Selected",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"com.formdev.flatlaf.ui.FlatTableHeaderBorder",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"com.formdev.flatlaf.ui.FlatTableHeaderUI",
+  "methods":[{"name":"createUI","parameterTypes":["javax.swing.JComponent"] }]
+},
+{
+  "name":"com.formdev.flatlaf.ui.FlatTableHeaderUI$FlatTableHeaderCellRendererPane",
+  "methods":[{"name":"coalesceEvents","parameterTypes":["java.awt.AWTEvent","java.awt.AWTEvent"] }]
+},
+{
+  "name":"com.formdev.flatlaf.ui.FlatTableUI",
+  "methods":[{"name":"createUI","parameterTypes":["javax.swing.JComponent"] }]
+},
+{
+  "name":"com.formdev.flatlaf.ui.FlatTableUI$FlatBooleanRenderer",
+  "methods":[{"name":"coalesceEvents","parameterTypes":["java.awt.AWTEvent","java.awt.AWTEvent"] }]
+},
+{
+  "name":"com.formdev.flatlaf.ui.FlatTitlePane",
+  "methods":[{"name":"coalesceEvents","parameterTypes":["java.awt.AWTEvent","java.awt.AWTEvent"] }]
+},
+{
+  "name":"com.formdev.flatlaf.ui.FlatTitlePane$1",
+  "methods":[{"name":"coalesceEvents","parameterTypes":["java.awt.AWTEvent","java.awt.AWTEvent"] }]
+},
+{
+  "name":"com.formdev.flatlaf.ui.FlatTitlePane$2",
+  "methods":[{"name":"coalesceEvents","parameterTypes":["java.awt.AWTEvent","java.awt.AWTEvent"] }]
+},
+{
+  "name":"com.formdev.flatlaf.ui.FlatTitlePane$4",
+  "methods":[{"name":"coalesceEvents","parameterTypes":["java.awt.AWTEvent","java.awt.AWTEvent"] }]
+},
+{
+  "name":"com.formdev.flatlaf.ui.FlatTitlePane$6",
+  "methods":[{"name":"coalesceEvents","parameterTypes":["java.awt.AWTEvent","java.awt.AWTEvent"] }]
+},
+{
+  "name":"com.formdev.flatlaf.ui.FlatViewportUI",
+  "methods":[{"name":"createUI","parameterTypes":["javax.swing.JComponent"] }]
+},
+{
+  "name":"de.teatime08.Sample",
+  "methods":[{"name":"coalesceEvents","parameterTypes":["java.awt.AWTEvent","java.awt.AWTEvent"] }]
+},
+{
+  "name":"de.teatime08.config.Config",
+  "allDeclaredFields":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"de.teatime08.gui.SelectProviderActionFrame",
+  "methods":[{"name":"coalesceEvents","parameterTypes":["java.awt.AWTEvent","java.awt.AWTEvent"] }]
+},
+{
+  "name":"de.teatime08.gui.SelectProviderActionFrame$1",
+  "methods":[{"name":"coalesceEvents","parameterTypes":["java.awt.AWTEvent","java.awt.AWTEvent"] }]
+},
+{
+  "name":"java.awt.SequencedEvent"
+},
+{
+  "name":"java.awt.event.KeyEvent",
+  "fields":[{"name":"VK_A"}, {"name":"VK_ADD"}, {"name":"VK_BACK_SLASH"}, {"name":"VK_BACK_SPACE"}, {"name":"VK_C"}, {"name":"VK_CONTEXT_MENU"}, {"name":"VK_COPY"}, {"name":"VK_CUT"}, {"name":"VK_DELETE"}, {"name":"VK_DOWN"}, {"name":"VK_END"}, {"name":"VK_ENTER"}, {"name":"VK_ESCAPE"}, {"name":"VK_F10"}, {"name":"VK_F12"}, {"name":"VK_F2"}, {"name":"VK_F4"}, {"name":"VK_F5"}, {"name":"VK_F6"}, {"name":"VK_F7"}, {"name":"VK_F8"}, {"name":"VK_F9"}, {"name":"VK_H"}, {"name":"VK_HOME"}, {"name":"VK_INSERT"}, {"name":"VK_KP_DOWN"}, {"name":"VK_KP_LEFT"}, {"name":"VK_KP_RIGHT"}, {"name":"VK_KP_UP"}, {"name":"VK_LEFT"}, {"name":"VK_O"}, {"name":"VK_PAGE_DOWN"}, {"name":"VK_PAGE_UP"}, {"name":"VK_PASTE"}, {"name":"VK_RIGHT"}, {"name":"VK_SLASH"}, {"name":"VK_SPACE"}, {"name":"VK_SUBTRACT"}, {"name":"VK_T"}, {"name":"VK_TAB"}, {"name":"VK_UP"}, {"name":"VK_V"}, {"name":"VK_X"}]
+},
+{
+  "name":"java.lang.Class",
+  "methods":[{"name":"getRecordComponents","parameterTypes":[] }, {"name":"isRecord","parameterTypes":[] }]
+},
+{
+  "name":"java.lang.Thread",
+  "fields":[{"name":"threadLocalRandomProbe"}]
+},
+{
+  "name":"java.lang.reflect.RecordComponent",
+  "methods":[{"name":"getName","parameterTypes":[] }, {"name":"getType","parameterTypes":[] }]
+},
+{
+  "name":"java.security.SecureRandomParameters"
+},
+{
+  "name":"java.sql.Date"
+},
+{
+  "name":"java.util.concurrent.atomic.AtomicBoolean",
+  "fields":[{"name":"value"}]
+},
+{
+  "name":"java.util.concurrent.atomic.AtomicMarkableReference",
+  "fields":[{"name":"pair"}]
+},
+{
+  "name":"java.util.concurrent.atomic.Striped64",
+  "fields":[{"name":"base"}, {"name":"cellsBusy"}]
+},
+{
+  "name":"javax.imageio.spi.ImageReaderSpi"
+},
+{
+  "name":"javax.imageio.spi.ImageReaderWriterSpi",
+  "methods":[{"name":"getFileSuffixes","parameterTypes":[] }, {"name":"getFormatNames","parameterTypes":[] }, {"name":"getMIMETypes","parameterTypes":[] }]
+},
+{
+  "name":"javax.imageio.spi.ImageWriterSpi"
+},
+{
+  "name":"javax.swing.JComponent",
+  "methods":[{"name":"getUI","parameterTypes":[] }]
+},
+{
+  "name":"javax.swing.PopupFactory",
+  "methods":[{"name":"getPopup","parameterTypes":["java.awt.Component","java.awt.Component","int","int","boolean"] }]
+},
+{
+  "name":"javax.swing.plaf.basic.BasicGraphicsUtils",
+  "methods":[{"name":"drawStringUnderlineCharAt","parameterTypes":["javax.swing.JComponent","java.awt.Graphics2D","java.lang.String","int","float","float"] }]
+},
+{
+  "name":"javax.swing.plaf.basic.BasicMenuItemUI",
+  "methods":[{"name":"loadActionMap","parameterTypes":["javax.swing.plaf.basic.LazyActionMap"] }]
+},
+{
+  "name":"javax.swing.plaf.basic.BasicOptionPaneUI",
+  "methods":[{"name":"createUI","parameterTypes":["javax.swing.JComponent"] }, {"name":"loadActionMap","parameterTypes":["javax.swing.plaf.basic.LazyActionMap"] }]
+},
+{
+  "name":"javax.swing.plaf.basic.BasicPanelUI",
+  "methods":[{"name":"createUI","parameterTypes":["javax.swing.JComponent"] }]
+},
+{
+  "name":"javax.swing.plaf.basic.BasicTableHeaderUI",
+  "methods":[{"name":"createUI","parameterTypes":["javax.swing.JComponent"] }]
+},
+{
+  "name":"javax.swing.plaf.basic.BasicTableUI",
+  "methods":[{"name":"createUI","parameterTypes":["javax.swing.JComponent"] }, {"name":"loadActionMap","parameterTypes":["javax.swing.plaf.basic.LazyActionMap"] }]
+},
+{
+  "name":"javax.swing.plaf.basic.BasicViewportUI",
+  "methods":[{"name":"createUI","parameterTypes":["javax.swing.JComponent"] }]
+},
+{
+  "name":"javax.swing.plaf.metal.MetalButtonUI",
+  "methods":[{"name":"createUI","parameterTypes":["javax.swing.JComponent"] }]
+},
+{
+  "name":"javax.swing.plaf.metal.MetalLabelUI",
+  "methods":[{"name":"createUI","parameterTypes":["javax.swing.JComponent"] }]
+},
+{
+  "name":"javax.swing.plaf.metal.MetalRootPaneUI",
+  "methods":[{"name":"createUI","parameterTypes":["javax.swing.JComponent"] }]
+},
+{
+  "name":"javax.swing.plaf.metal.MetalScrollBarUI",
+  "methods":[{"name":"createUI","parameterTypes":["javax.swing.JComponent"] }]
+},
+{
+  "name":"javax.swing.plaf.metal.MetalScrollPaneUI",
+  "methods":[{"name":"createUI","parameterTypes":["javax.swing.JComponent"] }]
+},
+{
+  "name":"net.miginfocom.swing.MigLayout"
+},
+{
+  "name":"sun.awt.Symbol",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"sun.awt.windows.WingDings",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"sun.java2d.marlin.DMarlinRenderingEngine",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"sun.security.provider.DRBG",
+  "methods":[{"name":"<init>","parameterTypes":["java.security.SecureRandomParameters"] }]
+},
+{
+  "name":"sun.security.provider.SHA",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"sun.security.provider.SHA2$SHA256",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+}
+]

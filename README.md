@@ -39,3 +39,14 @@ I already provided those
 
 6. Select the [NSIS_windows.nsi](NSIS_windows.nsi) file
 7. Find the SimpleInternetMonitor-WindowsInstaller.exe in the project dir
+
+
+## Tracing hints
+If you want to change some code, especially in UI swing/awt.
+Graal must be told to use the right reflections for your UI commands.
+So in order to "tell" graal which code to generate, we must 
+(trace)[https://www.graalvm.org/latest/reference-manual/native-image/guides/configure-with-tracing-agent/] 
+the app by executing the jar with the <code>native-image-agent</code> and writing the traced configuration to file.<br>
+The configuration has already been traced, so if you add some features before pushing
+execute the graal/trace/merge_tracing.ps1 script and trigger your code-relevant parts,
+when finished terminate the app and confirm in the script that your generated config is merged with those in <code>src/main/resources/META-INF/native-image</code>.
