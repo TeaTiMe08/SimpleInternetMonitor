@@ -15,11 +15,12 @@ jobs:
       output_releaseVer: ${{ steps.ver.outputs.project_version }}
       output_uploadUrl: ${{ steps.create_release.outputs.upload_url }}
     steps:
+      - uses: actions/checkout@v4
       - name: Get release version from pom.xml
         id: ver
         run: |
           ls -altr
-          echo "project_version=$(cat ./pom.xml | grep -Phm 1 '<version>.{0,15}' | sed -e 's/[[:space:]]\+//p' | sed 's/<version>//p' | sed 's/<\/version>//p' | head -n 1 | tr -d '\012\015')" >> $GITHUB_OUTPUT
+          echo "project_version=$(cat pom.xml | grep -Phm 1 '<version>.{0,15}' | sed -e 's/[[:space:]]\+//p' | sed 's/<version>//p' | sed 's/<\/version>//p' | head -n 1 | tr -d '\012\015')" >> $GITHUB_OUTPUT
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
