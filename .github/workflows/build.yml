@@ -5,7 +5,7 @@ on:
       - main
 jobs:
   create-release:
-    if: ${{ ! startsWith(github.event.head_commit.message , 'v') }}
+    if: ${{ startsWith(github.event.head_commit.message , 'v') }}
     name: Create release
     permissions: write-all
     runs-on: ubuntu-latest
