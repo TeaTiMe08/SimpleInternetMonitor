@@ -1,6 +1,5 @@
 package de.teatime08.gui;
 
-import com.formdev.flatlaf.ui.FlatPopupFactory;
 import de.teatime08.config.StoredConfigLoader;
 import de.teatime08.util.ResourceUtil;
 
@@ -71,7 +70,8 @@ public class AwtSystemTray {
             });
 
             JMenuItem providerItem = new JMenuItem("Select Provider");
-            providerItem.addActionListener(new SelectProviderActionFrame(storedConfigLoader));
+            SelectProviderActionFrame selectProviderActionFrame = new SelectProviderActionFrame(storedConfigLoader);
+            providerItem.addActionListener(e -> selectProviderActionFrame.setVisible(true));
             providerItem.addActionListener(list -> popup.setVisible(false));
 
             // add all options to the menu in order.

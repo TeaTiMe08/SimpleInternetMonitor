@@ -11,7 +11,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
-public class SelectProviderActionFrame extends JDialog implements ActionListener {
+public class SelectProviderActionFrame extends JDialog {
     private JButton selectButton;
     private JTable itemTable;
 
@@ -21,12 +21,9 @@ public class SelectProviderActionFrame extends JDialog implements ActionListener
 
     public SelectProviderActionFrame(StoredConfigLoader storedConfigLoader) {
         this.storedConfigLoader = storedConfigLoader;
-    }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
         setTitle("Item Selection");
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         setSize(400, 300);
 
         // load providers
@@ -74,6 +71,7 @@ public class SelectProviderActionFrame extends JDialog implements ActionListener
                         storedConfigLoader.store();
                     } catch (IOException ex) {
                         JOptionPane.showMessageDialog(null, "This did not work: Exception @ " + StackTracePrinter.stacktraceLineMessage(ex));
+                        throw new RuntimeException(ex);
                     }
                     thus.dispose();
                     thus.setVisible(false);
@@ -84,6 +82,5 @@ public class SelectProviderActionFrame extends JDialog implements ActionListener
             }
         });
         setLocationRelativeTo(null);
-        setVisible(true);
     }
 }
