@@ -9,11 +9,13 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.NetworkInterface;
+import java.net.SocketException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Arrays;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -28,6 +30,7 @@ public class NetLatency implements NetLatencyFileInformation, Runnable, StoredCo
     private int timeoutms = 1000;
     private String filename = "SimpleInternetMonitor.csv";
     private boolean shouldRun = true;
+    private static final long scheduleForMeasurementInMillies = 60_000L; // measurement repeats every x millieseconds
     String absoluteLogFile;
     private PrintWriter openCsvPrinter;
     private final StoredConfigLoader storedConfigLoader;
@@ -71,12 +74,14 @@ public class NetLatency implements NetLatencyFileInformation, Runnable, StoredCo
         Thread thread = new Thread(() -> {
             while (shouldRun) {
                 try {
-                    long fixedTimeoutMillies = 30_000L;
                     long nanos = System.nanoTime();
-                    measureAndSave();
+                    if (isConnectedToLocalNetwork())
+                        measureAndSave();
+                    else
+                        Thread.sleep(10);
                     double timePassedMillies = (System.nanoTime() - nanos) / 1_000_000d;
                     timePassedMillies = Math.max(0, timePassedMillies);
-                    Thread.sleep(fixedTimeoutMillies - (long)timePassedMillies);
+                    Thread.sleep(scheduleForMeasurementInMillies - (long)timePassedMillies);
                 } catch (Throwable e) {
                     System.err.println(StackTracePrinter.stacktraceLineMessage(e));
                 }
@@ -108,6 +113,56 @@ public class NetLatency implements NetLatencyFileInformation, Runnable, StoredCo
         openCsvPrinter.println(csvToString(csv));
         if (ex != null)
             System.err.println(StackTracePrinter.stacktraceLineMessage(ex));
+    }
+
+    private boolean isConnectedToLocalNetwork() {
+        List<NetworkInterface> interfaces = null;
+        try {
+            interfaces = Collections.list(NetworkInterface.getNetworkInterfaces());
+        } catch (SocketException e) {
+            System.err.println("Could not retrieve NetworkInterfaces fom NIO. " + StackTracePrinter.stacktraceLineMessage(e));
+            return false;
+        }
+        List<NetworkInterface> potentialConnects = new LinkedList<>();
+        List<String> macs = new LinkedList<>();
+        for (NetworkInterface inf : interfaces) {
+            // filter out garbage, mostly for windows
+            try {
+                if (inf.isVirtual() || inf.getInterfaceAddresses().isEmpty() || inf.isLoopback() || ! inf.isUp())
+                    continue;
+            } catch (SocketException e) {
+                continue;
+            }
+            // filter out Hyper V for Windows, if it's enabled, those are always online
+            if (inf.getDisplayName().contains("Hyper-V"))
+                continue;
+            // If windows is connected via Remote NDIS (something like USB-Tethering)
+            if (inf.getDisplayName().contains("NDIS") && inf.getDisplayName().contains("MAC"))
+                return true;
+            // Check if it's a real chip
+            try {
+                byte[] hardwareAddress = inf.getHardwareAddress();
+                if (hardwareAddress == null)
+                    continue;
+                String hex = bytesToHex(hardwareAddress);
+                if (WiresharkManufModel.loadedMacs.contains(hex) || WiresharkManufModel.loadedMacs.contains(hex.substring(0,6)))
+                    potentialConnects.add(inf);
+            } catch (SocketException e) {
+                continue;
+            }
+        }
+        return ! potentialConnects.isEmpty();
+    }
+
+    private static final char[] HEX_ARRAY = "0123456789ABCDEF".toCharArray();
+    public static String bytesToHex(byte[] bytes) {
+        char[] hexChars = new char[bytes.length * 2];
+        for (int j = 0; j < bytes.length; j++) {
+            int v = bytes[j] & 0xFF;
+            hexChars[j * 2] = HEX_ARRAY[v >>> 4];
+            hexChars[j * 2 + 1] = HEX_ARRAY[v & 0x0F];
+        }
+        return new String(hexChars);
     }
 
     private static String csvToString(String[] csv) {
