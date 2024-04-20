@@ -21,8 +21,6 @@ public class SelectProviderActionFrame extends JDialog {
     public SelectProviderActionFrame(StoredConfigLoader storedConfigLoader) {
         this.storedConfigLoader = storedConfigLoader;
 
-        setLocationRelativeTo(null);
-
         setTitle("Item Selection");
         setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         setSize(400, 300);
