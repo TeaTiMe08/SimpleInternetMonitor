@@ -1,6 +1,22 @@
 [
 {
+  "name":"[B"
+},
+{
+  "name":"[Ljava.awt.event.ActionListener;"
+},
+{
   "name":"[Ljava.awt.event.MouseMotionListener;"
+},
+{
+  "name":"[Ljava.lang.String;"
+},
+{
+  "name":"[Lsun.security.pkcs.SignerInfo;"
+},
+{
+  "name":"boolean",
+  "fields":[{"name":"OPTIONS"}, {"name":"STRING_ENCODING"}, {"name":"STRUCTURE_ALIGNMENT"}, {"name":"TYPE_MAPPER"}]
 },
 {
   "name":"com.formdev.flatlaf.icons.FlatAscendingSortIcon",
@@ -127,6 +143,61 @@
   "methods":[{"name":"createUI","parameterTypes":["javax.swing.JComponent"] }]
 },
 {
+  "name":"com.sun.crypto.provider.AESCipher$General",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"com.sun.crypto.provider.ARCFOURCipher",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"com.sun.crypto.provider.ChaCha20Cipher$ChaCha20Poly1305",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"com.sun.crypto.provider.DESCipher",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"com.sun.crypto.provider.DESedeCipher",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"com.sun.crypto.provider.DHParameters",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"com.sun.crypto.provider.GaloisCounterMode$AESGCM",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"com.sun.crypto.provider.HmacCore$HmacSHA384",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"com.sun.crypto.provider.TlsMasterSecretGenerator",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"com.sun.jna.CallbackProxy",
+  "methods":[{"name":"callback","parameterTypes":["java.lang.Object[]"] }]
+},
+{
+  "name":"com.sun.jna.Pointer",
+  "fields":[{"name":"OPTIONS"}, {"name":"STRING_ENCODING"}, {"name":"STRUCTURE_ALIGNMENT"}, {"name":"TYPE_MAPPER"}]
+},
+{
+  "name":"com.sun.jna.Structure$FFIType",
+  "allDeclaredFields":true,
+  "queryAllPublicConstructors":true,
+  "fields":[{"name":"OPTIONS"}, {"name":"STRING_ENCODING"}, {"name":"STRUCTURE_ALIGNMENT"}, {"name":"TYPE_MAPPER"}],
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"com.sun.jna.Structure$FFIType$size_t",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
   "name":"de.teatime08.config.Config",
   "allDeclaredFields":true,
   "methods":[{"name":"<init>","parameterTypes":[] }]
@@ -140,6 +211,103 @@
   "methods":[{"name":"coalesceEvents","parameterTypes":["java.awt.AWTEvent","java.awt.AWTEvent"] }]
 },
 {
+  "name":"dorkbox.jna.linux.AppIndicator",
+  "queryAllDeclaredMethods":true
+},
+{
+  "name":"dorkbox.jna.linux.FuncCallback",
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true
+},
+{
+  "name":"dorkbox.jna.linux.GCallback",
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true
+},
+{
+  "name":"dorkbox.jna.linux.GMainContext",
+  "fields":[{"name":"OPTIONS"}, {"name":"STRING_ENCODING"}, {"name":"STRUCTURE_ALIGNMENT"}, {"name":"TYPE_MAPPER"}],
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"dorkbox.jna.linux.GMainLoop",
+  "fields":[{"name":"OPTIONS"}, {"name":"STRING_ENCODING"}, {"name":"STRUCTURE_ALIGNMENT"}, {"name":"TYPE_MAPPER"}],
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"dorkbox.jna.linux.GObject",
+  "queryAllDeclaredMethods":true
+},
+{
+  "name":"dorkbox.jna.linux.Glib",
+  "allPublicFields":true,
+  "queryAllDeclaredMethods":true
+},
+{
+  "name":"dorkbox.jna.linux.Glib$GLogFunc",
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true
+},
+{
+  "name":"dorkbox.jna.linux.Gtk3",
+  "queryAllDeclaredMethods":true
+},
+{
+  "name":"dorkbox.jna.linux.Gtk3VersionInfo",
+  "queryAllDeclaredMethods":true
+},
+{
+  "name":"dorkbox.jna.linux.GtkEventDispatch$5",
+  "fields":[{"name":"OPTIONS"}, {"name":"STRING_ENCODING"}, {"name":"STRUCTURE_ALIGNMENT"}, {"name":"TYPE_MAPPER"}]
+},
+{
+  "name":"dorkbox.jna.linux.structs.AppIndicatorInstanceStruct",
+  "allDeclaredFields":true,
+  "queryAllPublicConstructors":true,
+  "fields":[{"name":"OPTIONS"}, {"name":"STRING_ENCODING"}, {"name":"STRUCTURE_ALIGNMENT"}, {"name":"TYPE_MAPPER"}],
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"dorkbox.jna.linux.structs.GObjectStruct",
+  "allDeclaredFields":true,
+  "queryAllPublicConstructors":true,
+  "fields":[{"name":"OPTIONS"}, {"name":"STRING_ENCODING"}, {"name":"STRUCTURE_ALIGNMENT"}, {"name":"TYPE_MAPPER"}],
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"dorkbox.jna.linux.structs.GTypeInstanceStruct",
+  "allDeclaredFields":true,
+  "queryAllPublicConstructors":true,
+  "fields":[{"name":"OPTIONS"}, {"name":"STRING_ENCODING"}, {"name":"STRUCTURE_ALIGNMENT"}, {"name":"TYPE_MAPPER"}],
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"dorkbox.jna.linux.structs.GtkRequisition",
+  "allDeclaredFields":true,
+  "fields":[{"name":"OPTIONS"}, {"name":"STRING_ENCODING"}, {"name":"STRUCTURE_ALIGNMENT"}, {"name":"TYPE_MAPPER"}]
+},
+{
+  "name":"dorkbox.systemTray.ui.gtk.GtkMenuItem",
+  "fields":[{"name":"OPTIONS"}, {"name":"STRING_ENCODING"}, {"name":"STRUCTURE_ALIGNMENT"}, {"name":"TYPE_MAPPER"}]
+},
+{
+  "name":"dorkbox.systemTray.ui.gtk._AppIndicatorNativeTray",
+  "queryAllPublicConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":["java.lang.String","dorkbox.systemTray.util.ImageResizeUtil","java.lang.Runnable"] }]
+},
+{
+  "name":"dorkbox.util.ImageUtil$1",
+  "methods":[{"name":"coalesceEvents","parameterTypes":["java.awt.AWTEvent","java.awt.AWTEvent"] }]
+},
+{
+  "name":"double",
+  "fields":[{"name":"OPTIONS"}, {"name":"STRING_ENCODING"}, {"name":"STRUCTURE_ALIGNMENT"}, {"name":"TYPE_MAPPER"}]
+},
+{
+  "name":"int",
+  "fields":[{"name":"OPTIONS"}, {"name":"STRING_ENCODING"}, {"name":"STRUCTURE_ALIGNMENT"}, {"name":"TYPE_MAPPER"}]
+},
+{
   "name":"java.awt.SequencedEvent"
 },
 {
@@ -151,18 +319,56 @@
   "methods":[{"name":"getRecordComponents","parameterTypes":[] }, {"name":"isRecord","parameterTypes":[] }]
 },
 {
+  "name":"java.lang.Object",
+  "methods":[{"name":"equals","parameterTypes":["java.lang.Object"] }, {"name":"hashCode","parameterTypes":[] }, {"name":"toString","parameterTypes":[] }]
+},
+{
+  "name":"java.lang.String",
+  "fields":[{"name":"OPTIONS"}, {"name":"STRING_ENCODING"}, {"name":"STRUCTURE_ALIGNMENT"}, {"name":"TYPE_MAPPER"}]
+},
+{
   "name":"java.lang.Thread",
   "fields":[{"name":"threadLocalRandomProbe"}]
+},
+{
+  "name":"java.lang.Throwable",
+  "methods":[{"name":"addSuppressed","parameterTypes":["java.lang.Throwable"] }]
+},
+{
+  "name":"java.lang.reflect.Method",
+  "methods":[{"name":"isVarArgs","parameterTypes":[] }]
 },
 {
   "name":"java.lang.reflect.RecordComponent",
   "methods":[{"name":"getName","parameterTypes":[] }, {"name":"getType","parameterTypes":[] }]
 },
 {
+  "name":"java.nio.Buffer"
+},
+{
+  "name":"java.security.AlgorithmParametersSpi"
+},
+{
+  "name":"java.security.KeyStoreSpi"
+},
+{
   "name":"java.security.SecureRandomParameters"
 },
 {
+  "name":"java.security.interfaces.RSAPrivateKey"
+},
+{
+  "name":"java.security.interfaces.RSAPublicKey"
+},
+{
   "name":"java.sql.Date"
+},
+{
+  "name":"java.util.Date"
+},
+{
+  "name":"java.util.concurrent.ForkJoinTask",
+  "fields":[{"name":"aux"}, {"name":"status"}]
 },
 {
   "name":"java.util.concurrent.atomic.AtomicBoolean",
@@ -191,6 +397,11 @@
   "name":"javax.imageio.spi.ImageWriterSpi"
 },
 {
+  "name":"javax.security.auth.x500.X500Principal",
+  "fields":[{"name":"thisX500Name"}],
+  "methods":[{"name":"<init>","parameterTypes":["sun.security.x509.X500Name"] }]
+},
+{
   "name":"javax.swing.JComponent",
   "methods":[{"name":"getUI","parameterTypes":[] }]
 },
@@ -215,10 +426,40 @@
   "methods":[{"name":"loadActionMap","parameterTypes":["javax.swing.plaf.basic.LazyActionMap"] }]
 },
 {
+  "name":"jdk.internal.misc.Unsafe"
+},
+{
+  "name":"kotlin.reflect.jvm.internal.ReflectionFactoryImpl"
+},
+{
+  "name":"long",
+  "fields":[{"name":"OPTIONS"}, {"name":"STRING_ENCODING"}, {"name":"STRUCTURE_ALIGNMENT"}, {"name":"TYPE_MAPPER"}]
+},
+{
   "name":"net.miginfocom.swing.MigLayout"
 },
 {
   "name":"sun.java2d.marlin.DMarlinRenderingEngine",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"sun.security.pkcs12.PKCS12KeyStore",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"sun.security.provider.DSA$SHA224withDSA",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"sun.security.provider.DSA$SHA256withDSA",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"sun.security.provider.JavaKeyStore$DualFormatJKS",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"sun.security.provider.JavaKeyStore$JKS",
   "methods":[{"name":"<init>","parameterTypes":[] }]
 },
 {
@@ -228,5 +469,103 @@
 {
   "name":"sun.security.provider.SHA",
   "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"sun.security.provider.SHA2$SHA224",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"sun.security.provider.SHA2$SHA256",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"sun.security.provider.SHA5$SHA384",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"sun.security.provider.SHA5$SHA512",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"sun.security.provider.X509Factory",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"sun.security.rsa.PSSParameters",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"sun.security.rsa.RSAKeyFactory$Legacy",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"sun.security.rsa.RSAPSSSignature",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"sun.security.rsa.RSASignature$SHA224withRSA",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"sun.security.ssl.SSLContextImpl$TLSContext",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"sun.security.util.ObjectIdentifier"
+},
+{
+  "name":"sun.security.x509.AuthorityInfoAccessExtension",
+  "methods":[{"name":"<init>","parameterTypes":["java.lang.Boolean","java.lang.Object"] }]
+},
+{
+  "name":"sun.security.x509.AuthorityKeyIdentifierExtension",
+  "methods":[{"name":"<init>","parameterTypes":["java.lang.Boolean","java.lang.Object"] }]
+},
+{
+  "name":"sun.security.x509.BasicConstraintsExtension",
+  "methods":[{"name":"<init>","parameterTypes":["java.lang.Boolean","java.lang.Object"] }]
+},
+{
+  "name":"sun.security.x509.CRLDistributionPointsExtension",
+  "methods":[{"name":"<init>","parameterTypes":["java.lang.Boolean","java.lang.Object"] }]
+},
+{
+  "name":"sun.security.x509.CertificateExtensions"
+},
+{
+  "name":"sun.security.x509.CertificatePoliciesExtension",
+  "methods":[{"name":"<init>","parameterTypes":["java.lang.Boolean","java.lang.Object"] }]
+},
+{
+  "name":"sun.security.x509.ExtendedKeyUsageExtension",
+  "methods":[{"name":"<init>","parameterTypes":["java.lang.Boolean","java.lang.Object"] }]
+},
+{
+  "name":"sun.security.x509.IssuerAlternativeNameExtension",
+  "methods":[{"name":"<init>","parameterTypes":["java.lang.Boolean","java.lang.Object"] }]
+},
+{
+  "name":"sun.security.x509.KeyUsageExtension",
+  "methods":[{"name":"<init>","parameterTypes":["java.lang.Boolean","java.lang.Object"] }]
+},
+{
+  "name":"sun.security.x509.NetscapeCertTypeExtension",
+  "methods":[{"name":"<init>","parameterTypes":["java.lang.Boolean","java.lang.Object"] }]
+},
+{
+  "name":"sun.security.x509.PrivateKeyUsageExtension",
+  "methods":[{"name":"<init>","parameterTypes":["java.lang.Boolean","java.lang.Object"] }]
+},
+{
+  "name":"sun.security.x509.SubjectAlternativeNameExtension",
+  "methods":[{"name":"<init>","parameterTypes":["java.lang.Boolean","java.lang.Object"] }]
+},
+{
+  "name":"sun.security.x509.SubjectKeyIdentifierExtension",
+  "methods":[{"name":"<init>","parameterTypes":["java.lang.Boolean","java.lang.Object"] }]
+},
+{
+  "name":"void",
+  "fields":[{"name":"OPTIONS"}, {"name":"STRING_ENCODING"}, {"name":"STRUCTURE_ALIGNMENT"}, {"name":"TYPE_MAPPER"}]
 }
 ]

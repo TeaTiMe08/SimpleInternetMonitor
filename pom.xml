@@ -48,7 +48,7 @@
 
     <dependencies>
         <!--                                      -->
-        <!--           UI Dependencies            -->
+        <!--       Networking Dependencies        -->
         <!--                                      -->
         <dependency>
             <groupId>com.google.code.gson</groupId>
@@ -72,6 +72,11 @@
             <groupId>com.formdev</groupId>
             <artifactId>flatlaf</artifactId>
             <version>3.4.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.dorkbox</groupId>
+            <artifactId>SystemTray</artifactId>
+            <version>4.4</version>
         </dependency>
         <!--                                      -->
         <!--        Testing Dependencies          -->

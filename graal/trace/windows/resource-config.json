@@ -39,6 +39,8 @@
   }, {
     "pattern":"\\Qcom/formdev/flatlaf/natives/flatlaf-windows-x86_64.dll\\E"
   }, {
+    "pattern":"\\Qcom/sun/jna/win32-x86-64/jnidispatch.dll\\E"
+  }, {
     "pattern":"\\Qicon.png\\E"
   }, {
     "pattern":"\\Qorg/slf4j/impl/StaticLoggerBinder.class\\E"

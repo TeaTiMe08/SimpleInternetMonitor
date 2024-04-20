@@ -5,6 +5,8 @@
   }, {
     "pattern":"\\QMETA-INF/services/com.sun.net.httpserver.spi.HttpServerProvider\\E"
   }, {
+    "pattern":"\\QMETA-INF/services/de.teatime08.netlatency.protocols.IRequestCheckerProvider\\E"
+  }, {
     "pattern":"\\QMETA-INF/services/java.awt.im.spi.InputMethodDescriptor\\E"
   }, {
     "pattern":"\\QMETA-INF/services/java.lang.System$LoggerFinder\\E"
@@ -29,19 +31,27 @@
   }, {
     "pattern":"\\QMETA-INF/services/jdk.vm.ci.services.JVMCIServiceLocator\\E"
   }, {
+    "pattern":"\\QMETA-INF/services/org.slf4j.spi.SLF4JServiceProvider\\E"
+  }, {
     "pattern":"\\Qcom/formdev/flatlaf/FlatIntelliJLaf.properties\\E"
   }, {
     "pattern":"\\Qcom/formdev/flatlaf/FlatLaf.properties\\E"
   }, {
     "pattern":"\\Qcom/formdev/flatlaf/FlatLightLaf.properties\\E"
   }, {
+    "pattern":"\\Qcom/sun/jna/linux-x86-64/libjnidispatch.so\\E"
+  }, {
     "pattern":"\\Qicon.png\\E"
+  }, {
+    "pattern":"\\Qorg/slf4j/impl/StaticLoggerBinder.class\\E"
   }, {
     "pattern":"\\QpingDomains.csv\\E"
   }, {
     "pattern":"\\Qstatic/chart.js\\E"
   }, {
     "pattern":"\\Qstatic/netspeed.html\\E"
+  }, {
+    "pattern":"java.base:\\Qjava/lang/Byte.class\\E"
   }, {
     "pattern":"java.base:\\Qjava/lang/Class.class\\E"
   }, {
@@ -54,6 +64,12 @@
     "pattern":"java.base:\\Qjava/lang/Long.class\\E"
   }, {
     "pattern":"java.base:\\Qjava/lang/reflect/Modifier.class\\E"
+  }, {
+    "pattern":"java.base:\\Qjdk/internal/icu/impl/data/icudt72b/nfkc.nrm\\E"
+  }, {
+    "pattern":"java.base:\\Qjdk/internal/icu/impl/data/icudt72b/uprops.icu\\E"
+  }, {
+    "pattern":"java.base:\\Qsun/net/idn/uidna.spp\\E"
   }, {
     "pattern":"java.desktop:\\Qcom/formdev/flatlaf/resources/Bundle.properties\\E"
   }, {
@@ -120,6 +136,8 @@
     "pattern":"jdk.internal.vm.compiler:\\Qorg/graalvm/compiler/replacements/SnippetCounter.class\\E"
   }, {
     "pattern":"jdk.internal.vm.compiler:\\Qorg/graalvm/compiler/replacements/SnippetIntegerHistogram.class\\E"
+  }, {
+    "pattern":"jdk.internal.vm.compiler:\\Qorg/graalvm/compiler/replacements/StringLatin1Snippets.class\\E"
   }, {
     "pattern":"jdk.internal.vm.compiler:\\Qorg/graalvm/compiler/replacements/amd64/AMD64ConvertSnippets.class\\E"
   }, {
