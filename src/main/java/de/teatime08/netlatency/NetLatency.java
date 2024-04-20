@@ -128,7 +128,7 @@ public class NetLatency implements NetLatencyFileInformation, Runnable, StoredCo
         for (NetworkInterface inf : interfaces) {
             // filter out garbage, mostly for windows
             try {
-                if (inf.isVirtual() || inf.getInterfaceAddresses().isEmpty() || inf.isLoopback() || ! inf.isUp())
+                if (inf.isVirtual() || inf.getInterfaceAddresses().isEmpty() || Collections.list(inf.getInetAddresses()).isEmpty() || inf.isLoopback() || ! inf.isUp())
                     continue;
             } catch (SocketException e) {
                 continue;
@@ -138,18 +138,21 @@ public class NetLatency implements NetLatencyFileInformation, Runnable, StoredCo
                 continue;
             // If windows is connected via Remote NDIS (something like USB-Tethering)
             if (inf.getDisplayName().contains("NDIS") && inf.getDisplayName().contains("MAC"))
-                return true;
+                ;
             // Check if it's a real chip
+            /*
             try {
                 byte[] hardwareAddress = inf.getHardwareAddress();
                 if (hardwareAddress == null)
                     continue;
                 String hex = bytesToHex(hardwareAddress);
-                if (WiresharkManufModel.loadedMacs.contains(hex) || WiresharkManufModel.loadedMacs.contains(hex.substring(0,6)))
-                    potentialConnects.add(inf);
+                if ( ! WiresharkManufModel.loadedMacs.contains(hex) && ! WiresharkManufModel.loadedMacs.contains(hex.substring(0,6)))
+                    continue;
             } catch (SocketException e) {
                 continue;
             }
+             */
+            potentialConnects.add(inf);
         }
         return ! potentialConnects.isEmpty();
     }
