@@ -1,8 +1,10 @@
 package de.teatime08.netlatency;
 
 import de.teatime08.util.ResourceUtil;
+import de.teatime08.util.StackTracePrinter;
 
 import java.io.IOException;
+import java.net.NetworkInterface;
 import java.util.HashSet;
 
 /**
@@ -36,6 +38,31 @@ public enum WiresharkManufModel {
                 macs.add(lines[i].split("\\t")[0].trim().replace(":", ""));
         }
         return macs;
+    }
+
+    public static boolean realChipInvolvedWithThisNI(NetworkInterface networkInterface) {
+        try {
+            byte[] hardwareAddress = networkInterface.getHardwareAddress();
+            if (hardwareAddress == null)
+                return false;
+            String hex = bytesToHex(hardwareAddress);
+            return WiresharkManufModel.loadedMacs.contains(hex) || WiresharkManufModel.loadedMacs.contains(hex.substring(0,6));
+        } catch (IOException e) {
+            System.err.println("Could not get hardware address for interface ex: " + StackTracePrinter.stacktraceLineMessage(e));
+            return false;
+        }
+    }
+
+
+    private static final char[] HEX_ARRAY = "0123456789ABCDEF".toCharArray();
+    public static String bytesToHex(byte[] bytes) {
+        char[] hexChars = new char[bytes.length * 2];
+        for (int j = 0; j < bytes.length; j++) {
+            int v = bytes[j] & 0xFF;
+            hexChars[j * 2] = HEX_ARRAY[v >>> 4];
+            hexChars[j * 2 + 1] = HEX_ARRAY[v & 0x0F];
+        }
+        return new String(hexChars);
     }
 
     public static String[] fromLine(String line) {

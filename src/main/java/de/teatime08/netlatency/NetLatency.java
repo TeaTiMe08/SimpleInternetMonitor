@@ -11,8 +11,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.NetworkInterface;
 import java.net.SocketException;
-import java.net.URL;
-import java.net.URLConnection;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
@@ -78,7 +76,7 @@ public class NetLatency implements NetLatencyFileInformation, Runnable, StoredCo
                     if (isConnectedToLocalNetwork())
                         measureAndSave();
                     else
-                        Thread.sleep(10);
+                        System.out.println("[" + LocalDateTime.now().toString() + "] Currently not connected to network. Connect to a network to continue monitoring.");
                     double timePassedMillies = (System.nanoTime() - nanos) / 1_000_000d;
                     timePassedMillies = Math.max(0, timePassedMillies);
                     Thread.sleep(scheduleForMeasurementInMillies - (long)timePassedMillies);
@@ -115,6 +113,11 @@ public class NetLatency implements NetLatencyFileInformation, Runnable, StoredCo
             System.err.println(StackTracePrinter.stacktraceLineMessage(ex));
     }
 
+    /**
+     * Checks if the computer is currently connected to a local network.
+     * This is done by filtering through the network interfaces.
+     * @return true, if the computer is connected to local network, false otherwise.
+     */
     private boolean isConnectedToLocalNetwork() {
         List<NetworkInterface> interfaces = null;
         try {
@@ -128,7 +131,11 @@ public class NetLatency implements NetLatencyFileInformation, Runnable, StoredCo
         for (NetworkInterface inf : interfaces) {
             // filter out garbage, mostly for windows
             try {
-                if (inf.isVirtual() || inf.getInterfaceAddresses().isEmpty() || Collections.list(inf.getInetAddresses()).isEmpty() || inf.isLoopback() || ! inf.isUp())
+                if (inf.isVirtual()
+                    || inf.getInterfaceAddresses().isEmpty()
+                    || Collections.list(inf.getInetAddresses()).isEmpty()
+                    || inf.isLoopback()
+                    || ! inf.isUp())
                     continue;
             } catch (SocketException e) {
                 continue;
@@ -138,34 +145,10 @@ public class NetLatency implements NetLatencyFileInformation, Runnable, StoredCo
                 continue;
             // If windows is connected via Remote NDIS (something like USB-Tethering)
             if (inf.getDisplayName().contains("NDIS") && inf.getDisplayName().contains("MAC"))
-                ;
-            // Check if it's a real chip
-            /*
-            try {
-                byte[] hardwareAddress = inf.getHardwareAddress();
-                if (hardwareAddress == null)
-                    continue;
-                String hex = bytesToHex(hardwareAddress);
-                if ( ! WiresharkManufModel.loadedMacs.contains(hex) && ! WiresharkManufModel.loadedMacs.contains(hex.substring(0,6)))
-                    continue;
-            } catch (SocketException e) {
-                continue;
-            }
-             */
+                ; // add ndis (policy), because cannot check if Remote NDIS interface is up...
             potentialConnects.add(inf);
         }
         return ! potentialConnects.isEmpty();
-    }
-
-    private static final char[] HEX_ARRAY = "0123456789ABCDEF".toCharArray();
-    public static String bytesToHex(byte[] bytes) {
-        char[] hexChars = new char[bytes.length * 2];
-        for (int j = 0; j < bytes.length; j++) {
-            int v = bytes[j] & 0xFF;
-            hexChars[j * 2] = HEX_ARRAY[v >>> 4];
-            hexChars[j * 2 + 1] = HEX_ARRAY[v & 0x0F];
-        }
-        return new String(hexChars);
     }
 
     private static String csvToString(String[] csv) {
