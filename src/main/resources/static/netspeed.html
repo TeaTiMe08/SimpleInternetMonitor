@@ -5,6 +5,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Refresh" content="300"><!-- Refresh page every 5 minutes -->
 
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="stylesheet" href="custom.css">
@@ -18,8 +19,56 @@
         <div class="container">
             <img class="logo" src="icon.png"></img>
             <div class="content">
-                <h2 class="headingL">Simple Internet Monitor</h2>
+                <h2 class="heading">Simple Internet Monitor</h2>
                 <input class="datepicker" onchange="showSelectedDay()" type="date" id="datePicker">
+            </div>
+            <div class="content separator"> </div>
+            <div class="content boxed day">
+                <h4 class="heading hh">Selected Day</h4>
+                <div class="leftF">
+                    <div class="leftChild"><p class="heading">Median</p></div>
+                    <div class="leftChild"><p id="DayMedianLatency" class="heading"></p></div>
+                </div>
+
+                <div class="leftF">
+                    <div class="leftChild"><p class="heading">Lowest</p></div>
+                    <div class="leftChild"><p id="DayMinimumLatency" class="heading"></p></div>
+                </div>
+
+                <div class="leftF">
+                    <div class="leftChild"><p class="heading">Uptime</p></div>
+                    <div class="leftChild"><p id="DayUptime" class="heading"></p></div>
+                </div>
+            </div>
+            <div class="content boxed week">
+                <h4 class="heading hh">Week Before</h4>
+                <div class="leftF">
+                    <div class="leftChild"><p class="heading">Median</p></div>
+                    <div class="leftChild"><p id="WeekMedianLatency" class="heading"></p></div>
+                </div>
+                <div class="leftF">
+                    <div class="leftChild"><p class="heading">Lowest</p></div>
+                    <div  class="leftChild"><p id="WeekMinimumLatency" class="heading"></p></div>
+                </div>
+                <div class="leftF">
+                    <div class="leftChild"><p class="heading">Uptime</p></div>
+                    <div class="leftChild"><p id="WeekUptime" class="heading"></p></div>
+                </div>
+            </div>
+            <div class="content boxed total">
+                <h4 class="heading hh">Overall</h4>
+                <div class="leftF">
+                    <div class="leftChild"><p class="heading">Median</p></div>
+                    <div class="leftChild"><p id="TotalMedianLatency" class="heading"></p></div>
+                </div>
+                <div class="leftF">
+                    <div class="leftChild"><p class="heading">Lowest</p></div>
+                    <div class="leftChild"><p id="TotalMinimumLatency" class="heading"></p></div>
+                </div>
+                <div class="leftF">
+                    <div class="leftChild"><p class="heading">Uptime</p></div>
+                    <div class="leftChild"><p id="TotalUptime" class="heading"></p></div>
+                </div>
             </div>
         </div>
     </div>

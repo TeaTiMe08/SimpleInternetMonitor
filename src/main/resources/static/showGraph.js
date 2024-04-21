@@ -7,7 +7,20 @@ let timestamps = [];
 let timeouts = [];
 let latencies = [];
 let maxLatency = 3000; // Set your maximum latency value
+const maxLatencyMultiplier = 4;
 let myChart = undefined;
+
+let dayMedL = 0;
+let dayMinL = 0;
+let dayUpT = 0;
+
+let weekMedL = 0;
+let weekMinL = 0;
+let weekUpT = 0;
+
+let totalMedL = 0;
+let totalMinL = 0;
+let totalUpT = 0;
 
 function loadGraph() {
     document.getElementById('datePicker').valueAsDate = new Date();
@@ -21,33 +34,86 @@ function loadGraph() {
         for (const line of lines) {
             const [timestamp, successful, latency] = line.split(',');
             timestamps.push(timestamp);
-            timeouts.push(successful == 'y');
+            timeouts.push(successful === 'n');
             latencies.push(Number(latency) <= 0 || successful != 'y' ? maxLatency : parseInt(latency));
         }
 
         // Create initial chart
         showSelectedDay();
+
+        // Total Statistics
+        totalMedL = median(latencies);
+        totalMinL = Math.min(...latencies);
+        const totalNumTimeouts = timeouts.filter((wasTimeout) => wasTimeout).length;
+        if (totalNumTimeouts == 0) {
+            totalUpT = 100;
+        } else {
+            totalUpT = (timeouts.length - totalNumTimeouts) / timeouts.length;
+            totalUpT = roundTo(totalUpT * 100, 2);
+        }
+
+        setHeaderStatistics();
     });
 }
 
 function showSelectedDay() {
-    const selectedDate = new Date(document.getElementById('datePicker').value).toDateString();
+    //const selectedDate = new Date(document.getElementById('datePicker').value).toDateString();
+    const selectedDate = new Date(document.getElementById('datePicker').value);
     const selectedTimestamps = [];
     const selectedLatencies = [];
+    const selectedDateTimeouts = [];
+
+    const lastWeekDayStart = new Date(selectedDate.getTime());
+    lastWeekDayStart.setDate(lastWeekDayStart.getDate() - 7);
+    const lastWeekLatencies = [];
+    const lastWeekTimeouts = [];
 
     for (let i = 0; i < timestamps.length; i++) {
-        if (new Date(timestamps[i]).toDateString() === selectedDate) {
+        //if (new Date(timestamps[i]).toDateString() === selectedDate) {
+        const timestapDate = new Date(timestamps[i]);
+        if (timestapDate.toDateString() === selectedDate.toDateString()) {
             selectedTimestamps.push(timestamps[i].split('T')[1]);
             selectedLatencies.push(latencies[i]);
+            selectedDateTimeouts.push(timeouts[i]);
+        }
+        if (timestapDate <= selectedDate && timestapDate >= lastWeekDayStart) {
+            lastWeekLatencies.push(latencies[i]);
+            lastWeekTimeouts.push(timeouts[i]);
         }
     }
 
+    // weekly statistics
+    weekMedL = median(lastWeekLatencies);
+    weekMinL = Math.min(...lastWeekLatencies);
+    const weekNumTimeouts = lastWeekTimeouts.filter((wasTimeout) => wasTimeout).length;
+    if (weekNumTimeouts == 0) {
+        weekupT = 100;
+    } else {
+        weekUpT = (lastWeekTimeouts.length - weekNumTimeouts) / lastWeekTimeouts.length;
+        weekUpT = roundTo(weekUpT * 100), 2;
+    }
 
+    // daily statistics
     const medianTs = median(selectedLatencies);
-    maxLatency = 5 * medianTs;
+    dayMedL = medianTs;
+    dayMinL = Math.min(...selectedLatencies);
+    const dayNumTimeouts = selectedDateTimeouts.filter((wasTimeout) => wasTimeout).length;
+    if (dayNumTimeouts == 0) {
+        dayUpT = 100;
+    } else {
+        dayUpT = (selectedDateTimeouts.length - dayNumTimeouts) / selectedDateTimeouts.length;
+        dayUpT = roundTo(dayUpT * 100, 2);
+    }
 
+    // adjust values fow showing the graph
+    // timeouts should be red. Must be over the maxLatency
+    maxLatency = maxLatencyMultiplier * medianTs;
     for(let i = 0; i < selectedLatencies.length; i++) {
-        selectedLatencies[i] = selectedLatencies[i] > maxLatency ? 0.99 * maxLatency : selectedLatencies[i];
+        if (selectedDateTimeouts[i]) {
+            selectedLatencies[i] = maxLatency;
+        } else {
+            selectedLatencies[i] = selectedLatencies[i] > maxLatency ? 0.99 * maxLatency : selectedLatencies[i];
+        }
     }
 
     createChart(selectedTimestamps, selectedLatencies);
@@ -60,6 +126,24 @@ function median(numbers) {
         return (sorted[middle - 1] + sorted[middle]) / 2;
     }
     return sorted[middle];
+}
+
+function roundTo(n, digits) {
+    var negative = false;
+    if (digits === undefined) {
+        digits = 0;
+    }
+    if (n < 0) {
+        negative = true;
+        n = n * -1;
+    }
+    var multiplicator = Math.pow(10, digits);
+    n = parseFloat((n * multiplicator).toFixed(11));
+    n = (Math.round(n) / multiplicator).toFixed(digits);
+    if (negative) {
+        n = (n * -1).toFixed(digits);
+    }
+    return n;
 }
 
 function createChart(labels, data) {
@@ -76,14 +160,14 @@ function createChart(labels, data) {
                 label: 'Latency (ms) - only red bars are timeouts',
                 data: data,
                 backgroundColor: (context) => {
-                    if (context.raw === maxLatency) {
+                    if (context.raw >= maxLatency) {
                         return 'rgba(255, 0, 0, 1)';
                     } else {
                         return 'rgba(75, 192, 192, 0.2)';
                     }
                 },
                 borderColor: (context) => {
-                    if (context.raw === maxLatency) {
+                    if (context.raw >= maxLatency) {
                         return 'rgba(255, 0, 0, 1)';
                     } else {
                         return 'rgba(75, 192, 192, 1)';
@@ -113,4 +197,18 @@ function createChart(labels, data) {
             }
         }
     });
+}
+
+function setHeaderStatistics() {
+    document.getElementById('DayMedianLatency').textContent = Math.round(dayMedL) + "ms";
+    document.getElementById('DayMinimumLatency').textContent = dayMinL + "ms";
+    document.getElementById('DayUptime').textContent = dayUpT + "%";
+
+    document.getElementById('WeekMedianLatency').textContent = Math.round(weekMedL) + "ms";
+    document.getElementById('WeekMinimumLatency').textContent = weekMinL + "ms";
+    document.getElementById('WeekUptime').textContent = weekUpT + "%";
+
+    document.getElementById('TotalMedianLatency').textContent = Math.round(totalMedL) + "ms";
+    document.getElementById('TotalMinimumLatency').textContent = totalMinL + "ms";
+    document.getElementById('TotalUptime').textContent = totalUpT + "%";
 }
