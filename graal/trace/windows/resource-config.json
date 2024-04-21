@@ -41,7 +41,7 @@
   }, {
     "pattern":"\\Qcom/sun/jna/win32-x86-64/jnidispatch.dll\\E"
   }, {
-    "pattern":"\\Qicon.png\\E"
+    "pattern":"\\Qstatic/icon.png\\E"
   }, {
     "pattern":"\\Qorg/slf4j/impl/StaticLoggerBinder.class\\E"
   }, {

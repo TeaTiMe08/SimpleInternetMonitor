@@ -3,7 +3,6 @@ package de.teatime08;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
-import de.teatime08.config.StoredConfigLoader;
 import de.teatime08.netlatency.NetLatencyFileInformation;
 import de.teatime08.util.ResourceUtil;
 
@@ -20,6 +19,11 @@ public class WebServer {
         server.createContext("/simpleInternetMonitor", HttpHandlerFactory.staticContent("/static/netspeed.html"));
         server.createContext("/favicon.ico", HttpHandlerFactory.staticContent("/static/favicon.ico"));
         server.createContext("/chart.js", HttpHandlerFactory.staticContent("/static/chart.js", "application/javascript"));
+        server.createContext("/showGraph.js", HttpHandlerFactory.staticContent("/static/showGraph.js", "application/javascript"));
+        server.createContext("/custom.css", HttpHandlerFactory.staticContent("/static/custom.css", "text/css"));
+        server.createContext("/icon.png", HttpHandlerFactory.staticContent("/static/icon.png", "image/png"));
+        server.createContext("/background.png", HttpHandlerFactory.staticContent("/static/background.png", "image/png"));
+        server.createContext("/github-mark.png", HttpHandlerFactory.staticContent("/static/github-mark.png", "image/png"));
         server.createContext("/datafile", new DataFileHandler());
         server.setExecutor(null); // creates a default executor
         server.start();

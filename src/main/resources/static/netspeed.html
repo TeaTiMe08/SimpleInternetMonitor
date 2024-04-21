@@ -2,111 +2,34 @@
 <html>
 <head>
     <title>Simple Internet Monitor</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="custom.css">
     <script src="chart.js"></script>
-    <style>
-        input[type="date"] {
-            margin: 10px;
-        }
-    </style>
+    <script type="text/javascript" src="showGraph.js"></script>
 </head>
 <body>
-<h2>Simple Internet Monitor</h2>
-<p>
-    <a href="https://github.com/TeaTiMe08/Simple_Internet_Monitor">TeaTiMe08/SimpleInternetMonitor</a>
-</p>
-<input onchange="showSelectedDay()" type="date" id="datePicker">
-<canvas id="latencyChart"></canvas>
 
-<script>
-    let timestamps = [];
-    let latencies = [];
-    const maxLatency = 300; // Set your maximum latency value
-    let myChart = undefined;
-
-    document.getElementById('datePicker').valueAsDate = new Date();
-    // Load the CSV data
-    fetch('http://localhost:8047/datafile')
-    .then(response => response.text())
-    .then(data => {
-        const lines = data.split('\n');
-
-        // Parse CSV data
-        for (const line of lines) {
-            const [timestamp, successful, latency] = line.split(',');
-            timestamps.push(timestamp);
-            latencies.push(Number(latency) <= 0 || successful != 'y' ? maxLatency : parseInt(latency));
-        }
-
-        // Create initial chart
-        showSelectedDay();
-    });
-
-    function createChart(labels, data) {
-        const ctx = document.getElementById('latencyChart').getContext('2d');
-        if (myChart) {
-            myChart.clear();
-            myChart.destroy();
-        }
-        myChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: labels,
-                datasets: [{
-                    label: 'Latency (ms)',
-                    data: data,
-                    backgroundColor: (context) => {
-                        if (context.raw === maxLatency) {
-                            return 'rgba(255, 0, 0, 1)';
-                        } else {
-                            return 'rgba(75, 192, 192, 0.2)';
-                        }
-                    },
-                    borderColor: (context) => {
-                        if (context.raw === maxLatency) {
-                            return 'rgba(255, 0, 0, 1)';
-                        } else {
-                            return 'rgba(75, 192, 192, 1)';
-                        }
-                    },
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    x: {
-                        title: {
-                            display: true,
-                            text: 'Timestamp'
-                        }
-                    },
-                    y: {
-                        title: {
-                            display: true,
-                            text: 'Latency (ms)'
-                        },
-                        beginAtZero: true,
-                        suggestedMax: maxLatency
-                    }
-                }
-            }
-        });
-    }
-
-    function showSelectedDay() {
-        const selectedDate = new Date(document.getElementById('datePicker').value).toDateString();
-        const selectedTimestamps = [];
-        const selectedLatencies = [];
-
-        for (let i = 0; i < timestamps.length; i++) {
-            if (new Date(timestamps[i]).toDateString() === selectedDate) {
-                selectedTimestamps.push(timestamps[i].split('T')[1]);
-                selectedLatencies.push(latencies[i]);
-            }
-        }
-
-        createChart(selectedTimestamps, selectedLatencies);
-    }
-</script>
+<div class="box">
+    <div class="row header">
+        <div class="container">
+            <img class="logo" src="icon.png"></img>
+            <div class="content">
+                <h2 class="headingL">Simple Internet Monitor</h2>
+                <input class="datepicker" onchange="showSelectedDay()" type="date" id="datePicker">
+            </div>
+        </div>
+    </div>
+    <div class="row content" style="width:97%;height:70Lvh;">
+        <canvas id="latencyChart"></canvas>
+    </div>
+    <div class="row footer">
+        <img style="width:24px; height:24px;" src="github-mark.png">
+        <a class="link" href="https://github.com/TeaTiMe08/Simple_Internet_Monitor">TeaTiMe08/SimpleInternetMonitor</a>
+    </div>
+</div>
 </body>
 </html>

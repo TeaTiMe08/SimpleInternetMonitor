@@ -47,7 +47,7 @@ public class AwtSystemTray {
         // load an image
         Image image;
         try {
-            InputStream imageStream = new ByteArrayInputStream(ResourceUtil.loadResource("/icon.png", this.getClass()));
+            InputStream imageStream = new ByteArrayInputStream(ResourceUtil.loadResource("/static/icon.png", this.getClass()));
             image = ImageIO.read(imageStream);
             image = image.getScaledInstance(16, 16, Image.SCALE_SMOOTH);
             systemTray.setImage(image);

@@ -1,0 +1,64 @@
+input[type="date"] {
+    margin: 10px;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  background-image: url("background.png");
+}
+
+.container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 130px; /* Adjust as needed */
+    height: auto; /* Keeps aspect ratio */
+    margin-right: 20px; /* Space between logo and other elements */
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+}
+
+.heading,
+.link,
+.datepicker {
+    margin: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-bottom: 10px; /* Space between each element */
+}
+
+.box {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+}
+
+.box .row {
+  border: 1px dotted grey;
+}
+
+.box .row.header {
+  flex: 0 1 auto;
+  font-family:Georgia,serif;
+  /* The above is shorthand for:
+  flex-grow: 0,
+  flex-shrink: 1,
+  flex-basis: auto
+  */
+}
+
+.box .row.content {
+  flex: 1 1 !important;
+  position: relative;
+}
+
+.box .row.footer {
+  flex: 0 1 40px;
+}
