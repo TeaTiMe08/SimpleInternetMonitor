@@ -1,6 +1,6 @@
 # Release [1.2.0] - 21.04.2024
 ### Added
-- Major UI Update
+- Major UI Update 
 - Added statistics for day, previous week for a selected date and total statistic
 - Look and feel adjustments for Webpage
 - Chart and other partial responsiveness
