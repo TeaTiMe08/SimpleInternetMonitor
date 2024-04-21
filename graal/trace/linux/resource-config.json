@@ -41,15 +41,31 @@
   }, {
     "pattern":"\\Qcom/sun/jna/linux-x86-64/libjnidispatch.so\\E"
   }, {
-    "pattern":"\\Qstatic/icon.png\\E"
+    "pattern":"\\Qicon.png\\E"
   }, {
     "pattern":"\\Qorg/slf4j/impl/StaticLoggerBinder.class\\E"
   }, {
     "pattern":"\\QpingDomains.csv\\E"
   }, {
+    "pattern":"\\Qstatic/background.png\\E"
+  }, {
     "pattern":"\\Qstatic/chart.js\\E"
   }, {
+    "pattern":"\\Qstatic/custom.css\\E"
+  }, {
+    "pattern":"\\Qstatic/dynamicStyle.js\\E"
+  }, {
+    "pattern":"\\Qstatic/favicon.ico\\E"
+  }, {
+    "pattern":"\\Qstatic/github-mark.png\\E"
+  }, {
+    "pattern":"\\Qstatic/icon.png\\E"
+  }, {
     "pattern":"\\Qstatic/netspeed.html\\E"
+  }, {
+    "pattern":"\\Qstatic/showGraph.js\\E"
+  }, {
+    "pattern":"java.base:\\Qjava/lang/Boolean.class\\E"
   }, {
     "pattern":"java.base:\\Qjava/lang/Byte.class\\E"
   }, {
@@ -63,6 +79,8 @@
   }, {
     "pattern":"java.base:\\Qjava/lang/Long.class\\E"
   }, {
+    "pattern":"java.base:\\Qjava/lang/Number.class\\E"
+  }, {
     "pattern":"java.base:\\Qjava/lang/reflect/Modifier.class\\E"
   }, {
     "pattern":"java.base:\\Qjdk/internal/icu/impl/data/icudt72b/nfkc.nrm\\E"
@@ -75,7 +93,11 @@
   }, {
     "pattern":"java.desktop:\\Qjavax/swing/text/html/default.css\\E"
   }, {
+    "pattern":"jdk.internal.vm.compiler:\\Qorg/graalvm/compiler/hotspot/HotSpotBackend.class\\E"
+  }, {
     "pattern":"jdk.internal.vm.compiler:\\Qorg/graalvm/compiler/hotspot/replacements/ClassGetHubNode.class\\E"
+  }, {
+    "pattern":"jdk.internal.vm.compiler:\\Qorg/graalvm/compiler/hotspot/replacements/DigestBaseSnippets.class\\E"
   }, {
     "pattern":"jdk.internal.vm.compiler:\\Qorg/graalvm/compiler/hotspot/replacements/HotSpotAllocationSnippets.class\\E"
   }, {
