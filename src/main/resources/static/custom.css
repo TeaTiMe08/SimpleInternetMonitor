@@ -7,6 +7,7 @@ body {
   height: 100%;
   margin: 0;
   background-image: url("background.png");
+  padding-left: 2px;
 }
 
 .container {
@@ -15,21 +16,29 @@ body {
 }
 
 .logo {
-    width: 130px; /* Adjust as needed */
+    width: 125px; /* Adjust as needed */
     height: auto; /* Keeps aspect ratio */
+    margin-top: 5px;
+    margin-bottom: 20px;
     margin-right: 20px; /* Space between logo and other elements */
+}
+
+.datepicker {
+    margin-left: 0px;
+    margin-top: 20px;
 }
 
 .content {
     display: flex;
     flex-direction: column;
+    margin-bottom: 20px;
 }
 
 .content.separator {
     border-left: thick solid #12213e;
     width: 5px;
     height: 100px;
-    margin-left: 30px;
+    margin-left: 25px;
 }
 
 .content.boxed {
@@ -39,7 +48,9 @@ body {
     border-radius: 12px;
     padding: 5px;
     margin-left: 10px;
+    margin-top: 5px;
     padding-right: 15px;
+    font-size: smaller;
 }
 
 .leftF {
@@ -105,7 +116,12 @@ body {
     margin: 0px;
     margin-left: 0px;
     margin-right: 0px;
-    margin-bottom: 10px; /* Space between each element */
+    margin-bottom: 5px; /* Space between each element */
+}
+
+.heading.main {
+    margin: 10px;
+    margin-bottom: 15px;
 }
 
 .heading.hh {

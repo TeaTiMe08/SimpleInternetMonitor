@@ -76,7 +76,7 @@ function showSelectedDay() {
             selectedLatencies.push(latencies[i]);
             selectedDateTimeouts.push(timeouts[i]);
         }
-        if (timestapDate <= selectedDate && timestapDate >= lastWeekDayStart) {
+        if (timestapDate.toDateString() === selectedDate.toDateString() || (timestapDate <= selectedDate && timestapDate >= lastWeekDayStart)) {
             lastWeekLatencies.push(latencies[i]);
             lastWeekTimeouts.push(timeouts[i]);
         }
@@ -194,21 +194,31 @@ function createChart(labels, data) {
                     beginAtZero: true,
                     suggestedMax: maxLatency
                 }
+            },
+            plugins: {
+                legend: {
+                    labels: {
+                        // This more specific font property overrides the global property
+                        font: {
+                            size: 14
+                        }
+                    }
+                }
             }
         }
     });
 }
 
 function setHeaderStatistics() {
-    document.getElementById('DayMedianLatency').textContent = Math.round(dayMedL) + "ms";
-    document.getElementById('DayMinimumLatency').textContent = dayMinL + "ms";
-    document.getElementById('DayUptime').textContent = dayUpT + "%";
+    document.getElementById('DayMedianLatency').textContent = Math.round(dayMedL);
+    document.getElementById('DayMinimumLatency').textContent = dayMinL;
+    document.getElementById('DayUptime').textContent = dayUpT;
 
-    document.getElementById('WeekMedianLatency').textContent = Math.round(weekMedL) + "ms";
-    document.getElementById('WeekMinimumLatency').textContent = weekMinL + "ms";
-    document.getElementById('WeekUptime').textContent = weekUpT + "%";
+    document.getElementById('WeekMedianLatency').textContent = Math.round(weekMedL);
+    document.getElementById('WeekMinimumLatency').textContent = weekMinL;
+    document.getElementById('WeekUptime').textContent = weekUpT;
 
-    document.getElementById('TotalMedianLatency').textContent = Math.round(totalMedL) + "ms";
-    document.getElementById('TotalMinimumLatency').textContent = totalMinL + "ms";
-    document.getElementById('TotalUptime').textContent = totalUpT + "%";
+    document.getElementById('TotalMedianLatency').textContent = Math.round(totalMedL);
+    document.getElementById('TotalMinimumLatency').textContent = totalMinL;
+    document.getElementById('TotalUptime').textContent = totalUpT;
 }
