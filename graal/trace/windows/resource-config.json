@@ -41,17 +41,25 @@
   }, {
     "pattern":"\\Qcom/sun/jna/win32-x86-64/jnidispatch.dll\\E"
   }, {
-    "pattern":"\\Qstatic/icon.png\\E"
-  }, {
     "pattern":"\\Qorg/slf4j/impl/StaticLoggerBinder.class\\E"
   }, {
     "pattern":"\\QpingDomains.csv\\E"
   }, {
+    "pattern":"\\Qstatic/background.png\\E"
+  }, {
     "pattern":"\\Qstatic/chart.js\\E"
+  }, {
+    "pattern":"\\Qstatic/custom.css\\E"
   }, {
     "pattern":"\\Qstatic/favicon.ico\\E"
   }, {
+    "pattern":"\\Qstatic/github-mark.png\\E"
+  }, {
+    "pattern":"\\Qstatic/icon.png\\E"
+  }, {
     "pattern":"\\Qstatic/netspeed.html\\E"
+  }, {
+    "pattern":"\\Qstatic/showGraph.js\\E"
   }, {
     "pattern":"java.base:\\Qjdk/internal/icu/impl/data/icudt72b/nfkc.nrm\\E"
   }, {
