@@ -1,6 +1,8 @@
 COUNTRY,PROVIDER_NAME,DOMAIN_OR_IP
 World,Google,http://google.com
-World,Websocket In,wss://echo.websocket.in
+World,Cloudflare DNS IPv4,1.1.1.1:53
+World,Cloudflare DNS IPv6,[2606:4700:4700::1111]:53
+World,Google DNS IPv4,8.8.8.8:53
 Germany,Vodafone,https://speedtest.vodafone.de
 Germany,Telecom Frankfurt,http://ffm.wsqm.telekom-dienste.de.prod.hosts.ooklaserver.net:8080
 Germany,Telecom Frankfurt WSS,wss://ffm.wsqm.telekom-dienste.de.prod.hosts.ooklaserver.net:8080/ws
