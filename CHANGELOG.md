@@ -1,3 +1,12 @@
+# Release [1.3.0] - 22.05.2024
+## Added
+- Socket support for e.g. DNS and IP connecting [#14](https://github.com/TeaTiMe08/SimpleInternetMonitor/issues/14)
+- Sorting / Filtering for Providers selection Window [#16](https://github.com/TeaTiMe08/SimpleInternetMonitor/issues/16)
+
+## Fixed
+- NSIS: Windows Uninstaller link shortcut not being created
+- Protocol String representation mapping to IRequestCheckerProvider
+
 # Release [1.2.0] - 21.04.2024
 ### Added
 - Major UI Update 
