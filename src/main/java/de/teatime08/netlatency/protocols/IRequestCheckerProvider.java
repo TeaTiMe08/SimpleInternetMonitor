@@ -11,6 +11,7 @@ public abstract class IRequestCheckerProvider {
         ServiceLoader.load(IRequestCheckerProvider.class).forEach(singletonRegister::add);
         System.out.println("Added protocol ServiceProviders: " + Arrays.toString(singletonRegister.toArray()));
     }
+    public abstract String getProtocolDescriptor();
     public abstract List<String> getSupportedProtocols();
 
     public abstract long measureLatencyInMs(String address) throws IOException;

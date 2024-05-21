@@ -2,6 +2,7 @@ package de.teatime08.gui;
 
 import de.teatime08.config.AvailibleProviders;
 import de.teatime08.config.StoredConfigLoader;
+import de.teatime08.netlatency.protocols.IRequestCheckerProvider;
 import de.teatime08.util.StackTracePrinter;
 
 import javax.swing.*;
@@ -32,14 +33,18 @@ public class SelectProviderActionFrame extends JDialog {
         } catch (IOException ex) {
             throw new RuntimeException(ex);
         }
-        String[][] items = new String[availibleProviders.size()][AvailibleProviders.ProviderCSVModel.values().length];
+        String[][] items = new String[availibleProviders.size()][AvailibleProviders.ProviderCSVModel.values().length + 1];
         AvailibleProviders.Provider[] providers = availibleProviders.toArray(new AvailibleProviders.Provider[availibleProviders.size()]);
         for (int i = 0; i < items.length; i++) {
-            items[i] = new String[]{providers[i].domainOrIp, providers[i].providerName, providers[i].country};
+            String protocol = "";
+            try {
+                protocol = IRequestCheckerProvider.getInstanceForAddress(providers[i].domainOrIp).getProtocolDescriptor();
+            } catch (UnsupportedOperationException e) {}
+            items[i] = new String[]{providers[i].domainOrIp, providers[i].providerName, providers[i].country, protocol};
         }
 
         // Create table model
-        DefaultTableModel tableModel = new DefaultTableModel(items, new String[]{"DOMAIN_OR_IP", "PROVIDER_NAME", "COUNTRY"});
+        DefaultTableModel tableModel = new DefaultTableModel(items, new String[]{"DOMAIN_OR_IP", "PROVIDER_NAME", "COUNTRY", "PROTOCOL"});
 
         // Create item table
         itemTable = new JTable(tableModel) {
@@ -48,6 +53,7 @@ public class SelectProviderActionFrame extends JDialog {
                 return false;
             }
         };
+        itemTable.setAutoCreateRowSorter(true);
         JScrollPane scrollPane = new JScrollPane(itemTable);
         add(scrollPane, BorderLayout.CENTER);
 

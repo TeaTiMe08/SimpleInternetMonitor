@@ -11,6 +11,11 @@ import java.util.List;
 public class URLProvider extends IRequestCheckerProvider {
 
     @Override
+    public String getProtocolDescriptor() {
+        return "URL";
+    }
+
+    @Override
     public List<String> getSupportedProtocols() {
         return Arrays.asList("http", "jrt", "file", "jar");
     }

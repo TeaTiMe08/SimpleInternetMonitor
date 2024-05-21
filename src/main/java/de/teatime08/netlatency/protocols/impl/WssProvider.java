@@ -18,6 +18,11 @@ import java.util.List;
 
 public class WssProvider extends IRequestCheckerProvider {
     @Override
+    public String getProtocolDescriptor() {
+        return "WSS";
+    }
+
+    @Override
     public List<String> getSupportedProtocols() {
         return Arrays.asList("ws", "wss");
     }

@@ -14,6 +14,11 @@ import java.util.concurrent.TimeUnit;
 
 public class HttpsProvider extends IRequestCheckerProvider {
     @Override
+    public String getProtocolDescriptor() {
+        return "HTTPS";
+    }
+
+    @Override
     public List<String> getSupportedProtocols() {
         return Arrays.asList("https");
     }
