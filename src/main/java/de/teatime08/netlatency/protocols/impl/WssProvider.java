@@ -6,7 +6,6 @@ import org.java_websocket.WebSocketImpl;
 import org.java_websocket.WebSocketListener;
 import org.java_websocket.client.WebSocketClient;
 import org.java_websocket.drafts.Draft;
-import org.java_websocket.exceptions.InvalidDataException;
 import org.java_websocket.exceptions.InvalidHandshakeException;
 import org.java_websocket.handshake.ClientHandshakeBuilder;
 import org.java_websocket.handshake.ServerHandshake;
@@ -14,13 +13,13 @@ import org.java_websocket.handshake.ServerHandshake;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 
 public class WssProvider extends IRequestCheckerProvider {
     @Override
-    public String[] getSupportedProtocols() {
-        return new String[]{"ws", "wss"};
+    public List<String> getSupportedProtocols() {
+        return Arrays.asList("ws", "wss");
     }
 
     @Override
@@ -43,7 +42,7 @@ public class WssProvider extends IRequestCheckerProvider {
             public void onError(Exception e) {}
         };
         mWs.setConnectionLostTimeout((int) (maxTimeoutMs / 1000.d));
-        if (getProtocolFromAddress(address).equalsIgnoreCase("wss"))
+        if (address.startsWith("wss"))
             mWs.setSocketFactory(SSLTrustUtils.totallyUnsafeSSLContext().getSocketFactory());
         try {
             long nanos = System.nanoTime();

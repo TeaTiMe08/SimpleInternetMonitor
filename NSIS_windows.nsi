@@ -17,7 +17,6 @@ Section "SimpleInternetMonitor" SecApp
 
     ; Add Uninstaller to Directory
     WriteUninstaller "$INSTDIR\uninstall.exe"
-    CreateShortCut "$SMPROGRAMS\\SimpleInternetMonitor\UninstallSimpleInternetMonitor.lnk" "$INSTDIR\uninstall.exe"
     ; Write Uninstaller Registry Entry
     WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\SimpleInternetMonitor" "Contact" "https://github.com/TeaTiMe08/SimpleInternetMonitor"
     WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\SimpleInternetMonitor" "DisplayIcon" "$INSTDIR\uninstall.exe"
@@ -36,6 +35,7 @@ Section "Start Menu Shortcut" SecShortcut
     SetShellVarContext all
     CreateDirectory "$SMPROGRAMS\SimpleInternetMonitor"
     CreateShortcut "$SMPROGRAMS\SimpleInternetMonitor\SimpleInternetMonitor.lnk" "$INSTDIR\SimpleInternetMonitor.exe"
+    CreateShortCut "$SMPROGRAMS\SimpleInternetMonitor\UninstallSimpleInternetMonitor.lnk" "$INSTDIR\uninstall.exe"
 SectionEnd
 
 Section "Autostart with Windows" SecAutostart

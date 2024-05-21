@@ -8,12 +8,14 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class HttpsProvider extends IRequestCheckerProvider {
     @Override
-    public String[] getSupportedProtocols() {
-        return new String[]{"https"};
+    public List<String> getSupportedProtocols() {
+        return Arrays.asList("https");
     }
 
     @Override

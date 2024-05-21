@@ -5,12 +5,14 @@ import de.teatime08.netlatency.protocols.IRequestCheckerProvider;
 import java.io.IOException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.Arrays;
+import java.util.List;
 
 public class URLProvider extends IRequestCheckerProvider {
 
     @Override
-    public String[] getSupportedProtocols() {
-        return new String[]{"http", "jrt", "file", "jar"};
+    public List<String> getSupportedProtocols() {
+        return Arrays.asList("http", "jrt", "file", "jar");
     }
     /**
      * The actual measurement of the network latency.
