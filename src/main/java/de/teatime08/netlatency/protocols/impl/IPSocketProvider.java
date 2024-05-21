@@ -10,6 +10,11 @@ import java.util.Arrays;
 import java.util.List;
 
 public class IPSocketProvider extends IRequestCheckerProvider {
+    @Override
+    public String getProtocolDescriptor() {
+        return "Socket";
+    }
+
     /**
      * All protocols which start with a number assume it's
      * @return
