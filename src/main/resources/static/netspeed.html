@@ -22,8 +22,10 @@
                 <h2 class="heading main">Simple Internet Monitor</h2>
                 <input class="datepicker" onchange="showSelectedDay()" type="date" id="datePicker">
                 <div class="leftF" style="margin-left:10px;font-size:smaller;">
-                    <span>Measured at: </span>
-                    <span id="networkAddressLabel" style="background-color:white;"></span>
+                    <span class="leftChild" style="padding-top:5px;">Measured at: </span>
+                    <form class="leftChild" style="font-size:smaller; margin-left=5px;">
+                        <input class="leftChild" id="networkAddressLabel" style="background-color:white; margin-left:5px;" type="text" value="" readonly>
+                    </form>
                 </div>
             </div>
             <div class="content separator"> </div>

@@ -32,9 +32,7 @@ function loadGraph() {
 
         // set network address
         var [, , , address] = lines[lines.length - 2].split(',');
-        const addressStringLengthLimit = 40;
-        address = address.length > addressStringLengthLimit ? address.substr(0, addressStringLengthLimit) + "..." : address;
-        document.getElementById('networkAddressLabel').textContent = address;
+        document.getElementById('networkAddressLabel').setAttribute("value", address);
 
         // Parse CSV data
         for (const line of lines) {
