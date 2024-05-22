@@ -107,6 +107,7 @@ public class NetLatency implements NetLatencyFileInformation, Runnable, StoredCo
             csv[LatencyFileCsvModel.LATENCY_IN_MS.ordinal()] = "-1";
             csv[LatencyFileCsvModel.WORKED.ordinal()] = "n";
         }
+        csv[LatencyFileCsvModel.CALLED_ADDRESS.ordinal()] = this.netaddress;
         System.out.println(this.netaddress + " : " + csvToString(csv));
         openCsvPrinter.println(csvToString(csv));
         if (ex != null)
