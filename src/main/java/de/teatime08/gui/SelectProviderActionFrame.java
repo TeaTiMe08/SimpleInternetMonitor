@@ -133,7 +133,7 @@ public class SelectProviderActionFrame extends JDialog {
                         int[] rowIndices = new int[rowsCount];
                         for (int i = 0; i < rowIndices.length; i++)
                             rowIndices[i] = i;
-                        sorter.setRowFilter(RowFilter.regexFilter("^(?i)" + txt, rowIndices));
+                        sorter.setRowFilter(RowFilter.regexFilter("^(?i).*" + txt, rowIndices));
                     } catch (PatternSyntaxException pse) {
                         System.out.println("Bad regex pattern");
                     }
