@@ -119,6 +119,10 @@ body {
     margin-bottom: 5px; /* Space between each element */
 }
 
+.link {
+    font-size: smaller;
+}
+
 .heading.main {
     margin: 10px;
     margin-bottom: 15px;

@@ -21,6 +21,10 @@
             <div class="content">
                 <h2 class="heading main">Simple Internet Monitor</h2>
                 <input class="datepicker" onchange="showSelectedDay()" type="date" id="datePicker">
+                <div class="leftF" style="margin-left:10px;font-size:smaller;">
+                    <span>Measured at: </span>
+                    <span id="networkAddressLabel" style="background-color:white;"></span>
+                </div>
             </div>
             <div class="content separator"> </div>
             <div class="content boxed day">
@@ -76,7 +80,7 @@
         <canvas id="latencyChart"></canvas>
     </div>
     <div class="row footer">
-        <img style="width:24px; height:24px;" src="github-mark.png">
+        <img style="width:16px; height:16px;" src="github-mark.png">
         <a class="link" href="https://github.com/TeaTiMe08/Simple_Internet_Monitor">TeaTiMe08/SimpleInternetMonitor</a>
     </div>
 </div>

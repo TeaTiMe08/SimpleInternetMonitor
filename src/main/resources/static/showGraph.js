@@ -30,6 +30,12 @@ function loadGraph() {
     .then(data => {
         const lines = data.split('\n');
 
+        // set network address
+        var [, , , address] = lines[lines.length - 2].split(',');
+        const addressStringLengthLimit = 40;
+        address = address.length > addressStringLengthLimit ? address.substr(0, addressStringLengthLimit) + "..." : address;
+        document.getElementById('networkAddressLabel').textContent = address;
+
         // Parse CSV data
         for (const line of lines) {
             const [timestamp, successful, latency] = line.split(',');
