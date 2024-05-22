@@ -304,6 +304,10 @@
   "name":"sun.awt.X11.XFramePeer"
 },
 {
+  "name":"sun.awt.X11.XRootWindow",
+  "methods":[{"name":"getXRootWindow","parameterTypes":[] }]
+},
+{
   "name":"sun.awt.X11.XToolkit",
   "fields":[{"name":"modLockIsShiftLock"}, {"name":"numLockMask"}]
 },
