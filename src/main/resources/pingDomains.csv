@@ -17,8 +17,20 @@ Germany,Telecom Frankfurt WSS,wss://ffm.wsqm.telekom-dienste.de.prod.hosts.ookla
 Germany,Telecom Berlin,http://ber.wsqm.telekom-dienste.de.prod.hosts.ooklaserver.net:8080
 Germany,Breitbandmessung.de,http://bbm2-wss.breitbandmessung.de/
 Germany,Speedtest.net,http://speedtest.briteline.de.prod.hosts.ooklaserver.net:8080
+Italy,Colt DNS,195.110.64.205:53
+Italy,Intred S.A. DNS,62.97.33.21:53
+Italy,Tiscali DNS,213.205.32.70:53
 Netherlands,KPN DNS,188.207.200.113:53
 Netherlands,Odido DNS,84.241.227.81:53
+Portugal,MEO DNS,212.55.154.174:53
+Portugal,MEO DNSv6,[2001:8a0:2106:5:212:155:154:174]:53
+Portugal,NOS Lisbon DNS,88.157.103.191:53
+Portugal,NOWO DNS,84.91.149.43:53
+Spain,Jazztel FTTH DNS,62.14.2.1:53
+Spain,Jazztel DLS DNS,87.216.1.66:53
+Spain,Masmovil DNS,212.230.135.1:53
+Spain,Masmovil DNS(alternative),212.230.135.2:53
+Spain,Yoigo DNS,212.230.135.1:53
 USA,AT&T DNS,68.94.156.1:53
 USA,AT&T Speedtest,https://speedtest.lwlcom.net.prod.hosts.ooklaserver.net:8080
 USA,Mediacom New York City DNS,108.166.149.2:53
