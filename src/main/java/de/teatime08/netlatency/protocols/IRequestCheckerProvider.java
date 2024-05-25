@@ -16,7 +16,7 @@ public abstract class IRequestCheckerProvider {
 
     public abstract long measureLatencyInMs(String address) throws IOException;
 
-    public static IRequestCheckerProvider getInstanceForAddress(final String address) {
+    public static IRequestCheckerProvider getInstanceForAddress(final String address) throws UnsupportedOperationException {
         final RuntimeException unsupportedException = new UnsupportedOperationException("Protocol for \"" + address + "\" is not supported.");
         // collect all possible protocols
         Set<String> allProtocols = singletonRegister
