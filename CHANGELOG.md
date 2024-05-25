@@ -1,3 +1,8 @@
+# Release [1.4.0] - 25.05.2024
+## Added
+- More DNS Providers of ISPs in Middle Europe and USA in the standard services list
+- Added option to manually add local providers
+
 # Release [1.3.0] - 22.05.2024
 ## Added
 - Socket support for e.g. DNS and IP connecting [#14](https://github.com/TeaTiMe08/SimpleInternetMonitor/issues/14)
