@@ -6,7 +6,8 @@ import java.util.stream.Collectors;
 public enum LatencyFileCsvModel {
     TIMESTAMP,
     WORKED,
-    LATENCY_IN_MS;
+    LATENCY_IN_MS,
+    CALLED_ADDRESS;
 
     public static String toCSVHeader() {
         return Arrays.stream(values()).map(Enum::name).collect(Collectors.joining(","));

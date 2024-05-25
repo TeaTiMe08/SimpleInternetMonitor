@@ -61,10 +61,10 @@ public class AwtSystemTray {
 
         // create provider menu
         JMenuItem providerItem = new JMenuItem("Select Provider");
-        SelectProviderActionFrame selectProviderActionFrame = new SelectProviderActionFrame(storedConfigLoader);
+        SelectProviderActionDialog selectProviderActionDialog = new SelectProviderActionDialog(storedConfigLoader);
         providerItem.addActionListener(e -> {
-            selectProviderActionFrame.setVisible(true);
-            selectProviderActionFrame.setLocationRelativeTo(null);
+            selectProviderActionDialog.setVisible(true);
+            selectProviderActionDialog.setLocationRelativeTo(null);
         });
 
         // create menu item for the default action

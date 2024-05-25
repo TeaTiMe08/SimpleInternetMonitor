@@ -30,6 +30,10 @@ function loadGraph() {
     .then(data => {
         const lines = data.split('\n');
 
+        // set network address
+        var [, , , address] = lines[lines.length - 2].split(',');
+        document.getElementById('networkAddressLabel').setAttribute("value", address);
+
         // Parse CSV data
         for (const line of lines) {
             const [timestamp, successful, latency] = line.split(',');

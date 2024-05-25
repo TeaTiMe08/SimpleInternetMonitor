@@ -1,11 +1,51 @@
 COUNTRY,PROVIDER_NAME,DOMAIN_OR_IP
 World,Google,http://google.com
-World,Cloudflare DNS IPv4,1.1.1.1:53
-World,Cloudflare DNS IPv6,[2606:4700:4700::1111]:53
-World,Google DNS IPv4,8.8.8.8:53
+World,Cloudflare DNS,1.1.1.1:53
+World,Cloudflare DNS,[2606:4700:4700::1111]:53
+World,Google DNS,8.8.8.8:53
+World,Quad9 DNS,9.9.9.9:53
+World,Quad9 DNSv6,[2620:fe::fe]:53
+World,OpenDNS,208.67.222.222:53
+World,OpenDNSv6,[2620:0:ccc::2]:53
+France,Orange DNS,80.10.246.2:53
+France,SFR DNS,109.0.66.10:53
+France,Free (Freebox) DNS,212.27.40.240:53
 Germany,Vodafone,https://speedtest.vodafone.de
 Germany,Telecom Frankfurt,http://ffm.wsqm.telekom-dienste.de.prod.hosts.ooklaserver.net:8080
 Germany,Telecom Frankfurt WSS,wss://ffm.wsqm.telekom-dienste.de.prod.hosts.ooklaserver.net:8080/ws
 Germany,Telecom Berlin,http://ber.wsqm.telekom-dienste.de.prod.hosts.ooklaserver.net:8080
 Germany,Breitbandmessung.de,http://bbm2-wss.breitbandmessung.de/
 Germany,Speedtest.net,http://speedtest.briteline.de.prod.hosts.ooklaserver.net:8080
+Italy,Colt DNS,195.110.64.205:53
+Italy,Intred S.A. DNS,62.97.33.21:53
+Italy,Tiscali DNS,213.205.32.70:53
+Netherlands,KPN DNS,188.207.200.113:53
+Netherlands,Odido DNS,84.241.227.81:53
+Portugal,MEO DNS,212.55.154.174:53
+Portugal,MEO DNSv6,[2001:8a0:2106:5:212:155:154:174]:53
+Portugal,NOS Lisbon DNS,88.157.103.191:53
+Portugal,NOWO DNS,84.91.149.43:53
+Spain,Jazztel FTTH DNS,62.14.2.1:53
+Spain,Jazztel DLS DNS,87.216.1.66:53
+Spain,Masmovil DNS,212.230.135.1:53
+Spain,Masmovil DNS(alternative),212.230.135.2:53
+Spain,Yoigo DNS,212.230.135.1:53
+USA,AT&T DNS,68.94.156.1:53
+USA,AT&T Speedtest,https://speedtest.lwlcom.net.prod.hosts.ooklaserver.net:8080
+USA,Mediacom New York City DNS,108.166.149.2:53
+USA,Mediacom Missouri DNS,97.64.183.162:53
+USA,Mediacom Georgia DNS,97.64.209.34:53
+USA,Mediacom Iowa DNS,97.64.168.10:53
+USA,Spectrum DNS,71.10.216.1:53
+USA,Spectrum DNSv6,[2607:f428:ffff:ffff::1]:53
+USA,Verizon Boston(MA) DNS,1.243.0.14:53
+USA,Verizon New York(NY) DNS,8.237.161.14:53
+USA,Verizon Newark(NJ) DNS,1.250.0.14:53
+USA,Verizon Philadelphia(PA) DNS,1.242.0.14:53
+USA,Verizon Reston(VA) DNS,1.252.0.14:53
+USA,Verizon Atlanta(GA) DNS,8.238.120.14:53
+USA,Verizon Tampa(FL) DNS,8.238.112.14:53
+USA,Verizon Dallas(TX) DNS,68.238.96.14:53
+USA,Verizon Los Angeles(CA) DNS,8.238.64.14:53
+USA,Verizon Seattle(WA) DNS,8.238.128.14:53
+USA,Verizon Chicago(IL) DNS,8.238.0.14:53
