@@ -1,5 +1,7 @@
 # Release [1.4.0] - 25.05.2024
 ## Added
+- Store the called provider in the measurements script.
+- Display the last provider used in the web-ui
 - More DNS Providers of ISPs in Middle Europe and USA in the standard services list
 - Added option to manually add local providers
 
