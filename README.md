@@ -1,9 +1,9 @@
 # SimpleInternetMonitor
 Measures Internet availibility in a background tray, so you can sue your network provider.
 
-![image](https://github.com/TeaTiMe08/SimpleInternetMonitor/assets/19726327/4a0c79c4-abb0-470c-887d-1bbdfac48143)
-
-
+<div>
+<img width="62%" alt="grafik" style="display: block;margin: 10px auto 20px;" src="https://github.com/TeaTiMe08/SimpleInternetMonitor/assets/19726327/4a0c79c4-abb0-470c-887d-1bbdfac48143" />
+</div>
 
 ## Why?
 So i am based in Germany and there is no state law for a clean internet cable infractructure.
@@ -19,6 +19,17 @@ I already provided those
 - Web UI for timeline tracking
 - Native Builds and Installer for Windows
 
+## How to use
+- Supported systems are Windows🪟 and Linux🐧.
+- Download and execute the latest Windows Installer from [TeaTiMe08/SimpleInternetMonitor/releases](https://github.com/TeaTiMe08/SimpleInternetMonitor/releases).
+- Open Provider Selector from the SimpleInternetMonitor in System-Tray.
+<img width="318" height="186" alt="grafik" src="https://github.com/user-attachments/assets/1931b3a3-9d59-46d0-b4b5-787d7c501ca8" />
+
+### Note
+⚠️ The Protocol and geographical distance to the Provider are impacting the latency of the measurements.
+Socket has lower then URL and HTTPS since it only tries to open a TCP channel to an IP address
+
+# Developer Information
 ## How to build the native executable
 1. Get GraalVM [from their Downloads page](https://www.graalvm.org/downloads/)
 2. Get [Maven](https://maven.apache.org/download.cgi)
@@ -40,8 +51,6 @@ I already provided those
 
 6. Select the [NSIS_windows.nsi](NSIS_windows.nsi) file
 7. Find the SimpleInternetMonitor-WindowsInstaller.exe in the project dir
-
-## Developer Information
 
 ### Add new netlatency ServiceProvider for measuring other protocols
 1. Create class at de/teatime08/netlatency/protocols/impl/ implementing (IRequestCheckerProvider.java)[src/main/java/de/teatime08/netlatency/protocols/IRequestCheckerProvider.java]
