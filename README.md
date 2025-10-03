@@ -27,6 +27,7 @@ I already provided those
 
 ### Note
 ⚠️ The Protocol and geographical distance to the Provider are impacting the latency of the measurements.
+
 Socket has lower then URL and HTTPS since it only tries to open a TCP channel to an IP address
 
 # Developer Information
